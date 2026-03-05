@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Canal da Empresa</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f6fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            gap: 40px;
+        }
+
+        .card {
+            background: #fff;
+            padding: 30px;
+            width: 300px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,.1);
+        }
+
+        .card h2 {
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #555;
+        }
+
+        .card a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .card.clima a {
+            background: #2196F3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="card">
+        <h2>📣 Feedback Anônimo</h2>
+        <p>Envie sugestões, críticas ou elogios de forma anônima.</p>
+        <a href="{% url 'enviar_feedback' %}">Enviar Feedback</a>
+    </div>
+
+    <div class="card clima">
+        <h2>📊 Pesquisa de Clima</h2>
+        <p>Ajude a melhorar o ambiente de trabalho respondendo a pesquisa.</p>
+        <a href="{% url 'responder_clima' %}">Responder Pesquisa</a>
+    </div>
+
+</div>
+
+</body>
+</html>

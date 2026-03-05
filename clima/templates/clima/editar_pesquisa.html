@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block title %}Editar Pesquisa{% endblock %}
+
+{% block content %}
+<script src="https://cdn.tailwindcss.com"></script>
+
+<div class="max-w-2xl mx-auto p-6">
+    <div class="mb-8">
+        <a href="{% url 'listar_pesquisas' %}" class="text-gray-400 hover:text-gray-600 text-xs font-bold uppercase tracking-widest flex items-center mb-4 transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            </svg>
+            Voltar para a Lista
+        </a>
+        <h1 class="text-3xl font-black text-gray-800 uppercase italic">Editar <span class="text-amber-500">Pesquisa</span></h1>
+        <p class="text-gray-500">Altere o título, a descrição ou o status de visibilidade.</p>
+    </div>
+
+    <form method="POST" class="bg-white border border-gray-100 p-8 rounded-3xl shadow-sm space-y-6">
+        {% csrf_token %}
+        
+        <div>
+            <label class="block text-xs font-black text-gray-400 uppercase tracking-widest mb-2">Título da Pesquisa</label>
+            <input type="text" name="titulo" value="{{ pesquisa.titulo }}" required
+                   class="w-full bg-gray-50 border-none rounded-2xl p-4 text-gray-800 focus:ring-2 focus:ring-amber-500 outline-none transition-all font-bold">
+        </div>
+
+        <div>
+            <label class="block text-xs font-black text-gray-400 uppercase tracking-widest mb-2">Descrição / Objetivo</label>
+            <textarea name="descricao" rows="4" 
+                      class="w-full bg-gray-50 border-none rounded-2xl p-4 text-gray-800 focus:ring-2 focus:ring-amber-500 outline-none transition-all italic">{{ pesquisa.descricao }}</textarea>
+        </div>
+
+        <div class="flex items-center bg-gray-50 p-4 rounded-2xl">
+            <input type="checkbox" name="ativa" id="ativa" {% if pesquisa.ativa %}checked{% endif %}
+                   class="w-5 h-5 text-amber-500 border-none rounded focus:ring-amber-500">
+            <label for="ativa" class="ml-3 text-sm font-bold text-gray-700 uppercase tracking-tight cursor-pointer">
+                Pesquisa Ativa (Visível para colaboradores)
+            </label>
+        </div>
+
+        <div class="pt-4 flex flex-col gap-3">
+            <button type="submit" 
+                    class="w-full bg-gray-900 text-white font-black py-4 rounded-2xl hover:bg-amber-500 transition-all uppercase text-xs tracking-widest shadow-lg shadow-gray-200">
+                Salvar Alterações
+            </button>
+            <a href="{% url 'listar_pesquisas' %}" class="text-center text-gray-400 hover:text-red-500 text-[10px] font-black uppercase tracking-widest transition-colors">
+                Cancelar e Sair
+            </a>
+        </div>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+{% block title %}Consultar Protocolo{% endblock %}
+
+{% block content %}
+<script src="https://cdn.tailwindcss.com"></script>
+
+<div class="max-w-2xl mx-auto p-6 space-y-8 animate__animated animate__fadeIn">
+    <div class="text-center space-y-2">
+        <h1 class="text-3xl font-bold text-gray-800">Acompanhar <span class="text-blue-600">Protocolo</span></h1>
+        <p class="text-gray-500 text-sm italic">Consulte o status da sua denúncia ou feedback sigiloso.</p>
+    </div>
+
+    <div class="bg-white p-8 rounded-3xl shadow-xl border border-gray-100">
+        <form method="get" class="space-y-4">
+            <div>
+                <label class="block text-xs font-black text-gray-400 uppercase mb-2 ml-1">Digite seu código</label>
+                <div class="flex gap-2">
+                    <input type="text" name="protocolo" value="{{ protocolo|default:'' }}" 
+                           placeholder="Ex: FB-A1B2" required
+                           class="flex-1 border-2 border-gray-100 rounded-2xl p-4 focus:border-blue-500 outline-none transition-all font-mono uppercase text-lg tracking-widest">
+                    <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-6 rounded-2xl font-bold transition-all">
+                        BUSCAR
+                    </button>
+                </div>
+            </div>
+        </form>
+
+        {% if erro %}
+            <div class="mt-6 p-4 bg-red-50 text-red-600 rounded-2xl text-sm font-medium border border-red-100 animate__animated animate__shakeX">
+                ⚠️ {{ erro }}
+            </div>
+        {% endif %}
+    </div>
+
+    {% if feedback %}
+    <div class="bg-white rounded-3xl shadow-2xl border-t-4 border-blue-600 overflow-hidden animate__animated animate__fadeInUp">
+        <div class="p-8 space-y-6">
+            <div class="flex justify-between items-center border-b pb-4">
+                <div>
+                    <span class="text-[10px] font-black text-gray-400 uppercase">Status da Solicitação</span>
+                    <div class="flex items-center gap-2">
+                        {% if feedback.resposta %}
+                            <span class="h-3 w-3 bg-green-500 rounded-full"></span>
+                            <span class="font-bold text-green-600 uppercase text-sm">Respondido</span>
+                        {% else %}
+                            <span class="h-3 w-3 bg-amber-500 rounded-full animate-pulse"></span>
+                            <span class="font-bold text-amber-600 uppercase text-sm">Em análise pelo RH</span>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="text-right">
+                    <span class="text-[10px] font-black text-gray-400 uppercase">Enviado em</span>
+                    <p class="text-sm font-bold text-gray-700">{{ feedback.data_criacao|date:"d/m/Y" }}</p>
+                </div>
+            </div>
+
+            <div>
+                <span class="text-[10px] font-black text-blue-600 uppercase mb-2 block">Sua Mensagem Original</span>
+                <p class="text-gray-700 bg-gray-50 p-4 rounded-2xl italic text-sm">"{{ feedback.mensagem }}"</p>
+            </div>
+
+            {% if feedback.resposta %}
+            <div class="bg-blue-50 p-6 rounded-2xl border border-blue-100 space-y-3">
+                <span class="text-[10px] font-black text-blue-700 uppercase flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6" />
+                    </svg>
+                    Retorno do Setor Responsável
+                </span>
+                <p class="text-gray-800 font-medium leading-relaxed">
+                    {{ feedback.resposta.texto_resposta }}
+                </p>
+                <p class="text-[10px] text-blue-400 font-bold tracking-widest text-right">
+                    Respondido em {{ feedback.resposta.data_resposta|date:"d/m/Y H:i" }}
+                </p>
+            </div>
+            {% else %}
+            <div class="text-center py-6">
+                <p class="text-gray-400 text-sm italic">Aguardando posicionamento da equipe responsável. Por favor, verifique novamente mais tarde.</p>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    {% endif %}
+
+    <div class="text-center">
+        <a href="{% url 'enviar_feedback' %}" class="text-sm font-bold text-gray-400 hover:text-blue-600 transition-all">
+            ← Voltar para a Central de Feedback
+        </a>
+    </div>
+</div>
+{% endblock %}

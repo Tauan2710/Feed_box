@@ -1,0 +1,8 @@
+<h2>Responder Feedback {{ feedback.protocolo }}</h2>
+
+<form method="post">
+    {% csrf_token %}
+    <textarea name="resposta" required></textarea>
+    <br>
+    <button type="submit">Enviar resposta</button>
+</form>

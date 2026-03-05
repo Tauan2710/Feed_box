@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% block content %}
+<script src="https://cdn.tailwindcss.com"></script>
+
+<div class="max-w-4xl mx-auto p-6 animate__animated animate__fadeIn">
+    <form method="POST" class="bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100">
+        {% csrf_token %}
+        
+        <div class="bg-gradient-to-r from-purple-700 to-indigo-800 p-8 text-white">
+            <h1 class="text-2xl font-black uppercase italic tracking-tighter">Criador de Pesquisa Personalizada</h1>
+            <p class="text-purple-100 text-xs mt-1 font-bold">Configure as perguntas e o sistema incluirá automaticamente o eNPS e o campo de IA.</p>
+        </div>
+
+        <div class="p-8 space-y-6">
+            <div>
+                <label class="block text-[10px] font-black text-gray-400 uppercase mb-2">Título da Pesquisa</label>
+                <input type="text" name="titulo" required placeholder="Ex: Avaliação Trimestral - Março"
+                    class="w-full bg-gray-50 border-2 border-gray-100 rounded-2xl p-4 focus:border-purple-500 outline-none transition-all font-bold text-gray-700 text-lg">
+            </div>
+
+            <hr class="border-gray-100">
+
+            <div id="perguntas-container" class="space-y-4">
+                <h3 class="text-xs font-black text-indigo-600 uppercase">Suas Perguntas Customizadas</h3>
+                <div class="pergunta-item bg-gray-50 p-4 rounded-2xl border border-gray-200 flex gap-4 items-end">
+                    <div class="flex-1">
+                        <label class="block text-[9px] font-black text-gray-400 uppercase mb-1">Texto da Pergunta</label>
+                        <input type="text" name="pergunta_texto[]" required class="w-full p-3 rounded-xl border-none focus:ring-2 focus:ring-purple-500 font-medium">
+                    </div>
+                    <div class="w-48">
+                        <label class="block text-[9px] font-black text-gray-400 uppercase mb-1">Tipo de Resposta</label>
+                        <select name="pergunta_tipo[]" class="w-full p-3 rounded-xl border-none focus:ring-2 focus:ring-purple-500 font-bold text-xs uppercase">
+                            <option value="NOTA">Escala de Emojis (0-5)</option>
+                            <option value="TEXTO">Campo de Texto</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <button type="button" onclick="addPergunta()" class="w-full py-3 border-2 border-dashed border-purple-300 text-purple-600 rounded-2xl font-black text-[10px] uppercase hover:bg-purple-50 transition">
+                + Adicionar Outra Pergunta
+            </button>
+
+            <div class="bg-blue-50 p-4 rounded-2xl flex items-center justify-between">
+                <span class="text-[10px] font-black text-blue-700 uppercase">Itens Fixos: <b>Régua eNPS</b> e <b>IA</b></span>
+                <span class="bg-blue-200 text-blue-800 text-[8px] px-2 py-1 rounded-full font-black">PADRÃO</span>
+            </div>
+
+            <div class="flex items-center gap-4 pt-6">
+                <button type="submit" class="flex-1 bg-purple-600 text-white font-black py-4 rounded-2xl hover:bg-purple-700 transition-all shadow-lg uppercase tracking-widest text-sm">
+                    Publicar Pesquisa
+                </button>
+                <a href="{% url 'dashboard' %}" class="px-6 py-4 text-gray-400 font-bold text-sm hover:text-gray-600 transition">Voltar</a>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script>
+function addPergunta() {
+    const container = document.getElementById('perguntas-container');
+    const div = document.createElement('div');
+    div.className = 'pergunta-item bg-gray-50 p-4 rounded-2xl border border-gray-200 flex gap-4 items-end animate__animated animate__fadeInUp';
+    div.innerHTML = `
+        <div class="flex-1">
+            <label class="block text-[9px] font-black text-gray-400 uppercase mb-1">Texto da Pergunta</label>
+            <input type="text" name="pergunta_texto[]" required class="w-full p-3 rounded-xl border-none focus:ring-2 focus:ring-purple-500 font-medium">
+        </div>
+        <div class="w-48">
+            <label class="block text-[9px] font-black text-gray-400 uppercase mb-1">Tipo de Resposta</label>
+            <select name="pergunta_tipo[]" class="w-full p-3 rounded-xl border-none focus:ring-2 focus:ring-purple-500 font-bold text-xs uppercase">
+                <option value="NOTA">Escala de Emojis (0-5)</option>
+                <option value="TEXTO">Campo de Texto</option>
+            </select>
+        </div>
+        <button type="button" onclick="this.parentElement.remove()" class="bg-red-100 text-red-600 p-3 rounded-xl hover:bg-red-200 transition">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+            </svg>
+        </button>
+    `;
+    container.appendChild(div);
+}
+</script>
+{% endblock %}

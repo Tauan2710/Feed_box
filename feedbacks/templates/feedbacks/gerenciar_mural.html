@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block content %}
+<script src="https://cdn.tailwindcss.com"></script>
+
+<div class="max-w-5xl mx-auto p-6 space-y-8 animate__animated animate__fadeIn">
+    <div class="flex items-center justify-between">
+        <h1 class="text-2xl font-black text-gray-800 uppercase italic">Gerenciar <span class="text-indigo-600">Mural</span></h1>
+        <a href="{% url 'dashboard' %}" class="text-xs font-bold text-gray-500 hover:text-gray-800">← Voltar ao Painel</a>
+    </div>
+
+    <div class="bg-white p-6 rounded-3xl shadow-xl border border-gray-100">
+        <h2 class="text-sm font-black text-gray-400 uppercase mb-4">Novo Comunicado</h2>
+        <form method="POST" class="space-y-4">
+            {% csrf_token %}
+            <input type="text" name="titulo" placeholder="Título do Aviso" class="w-full p-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-indigo-500 outline-none font-bold" required>
+            <textarea name="conteudo" rows="4" placeholder="Escreva a mensagem aqui..." class="w-full p-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-indigo-500 outline-none" required></textarea>
+            <button type="submit" class="bg-indigo-600 text-white px-6 py-3 rounded-xl font-black uppercase text-xs hover:bg-indigo-700 transition w-full shadow-lg">Publicar no Mural</button>
+        </form>
+    </div>
+
+    <div class="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden">
+        <table class="w-full text-left">
+            <thead class="bg-gray-50 text-gray-400 text-[10px] font-black uppercase">
+                <tr>
+                    <th class="px-6 py-4">Título</th>
+                    <th class="px-6 py-4">Data</th>
+                    <th class="px-6 py-4 text-center">Status</th>
+                    <th class="px-6 py-4 text-right">Ações</th>
+                </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-50">
+                {% for c in comunicados %}
+                <tr class="hover:bg-gray-50 transition">
+                    <td class="px-6 py-4 font-bold text-gray-700">{{ c.titulo }}</td>
+                    <td class="px-6 py-4 text-xs text-gray-500">{{ c.data_criacao|date:"d/m/Y H:i" }}</td>
+                    <td class="px-6 py-4 text-center">
+                        {% if c.ativo %}
+                            <span class="bg-green-100 text-green-600 px-2 py-1 rounded-full text-[9px] font-black uppercase">Ativo</span>
+                        {% else %}
+                            <span class="bg-gray-100 text-gray-400 px-2 py-1 rounded-full text-[9px] font-black uppercase">Oculto</span>
+                        {% endif %}
+                    </td>
+                    <td class="px-6 py-4 text-right space-x-2">
+                        <a href="{% url 'editar_comunicado' c.pk %}" class="text-blue-600 font-black text-[10px] uppercase hover:underline">Editar</a>
+                        <a href="{% url 'excluir_comunicado' c.pk %}" onclick="return confirm('Apagar este aviso?')" class="text-red-600 font-black text-[10px] uppercase hover:underline">Excluir</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

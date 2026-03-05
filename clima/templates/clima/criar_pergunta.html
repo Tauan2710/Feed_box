@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>📝 Perguntas – {{ pesquisa.titulo }}</h2>
+
+<form method="post" style="background:white;padding:20px;border-radius:8px;max-width:500px">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Adicionar Pergunta</button>
+</form>
+
+<hr>
+
+<h3>Perguntas cadastradas</h3>
+<ul>
+    {% for p in perguntas %}
+        <li>{{ p.texto }}</li>
+    {% empty %}
+        <li>Nenhuma pergunta ainda.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

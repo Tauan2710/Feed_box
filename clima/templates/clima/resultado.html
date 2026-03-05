@@ -1,0 +1,7 @@
+<h2>Resultado da Pesquisa de Clima</h2>
+
+<ul>
+    {% for r in resultados %}
+        <li>{{ r.pergunta__texto }} — Média: {{ r.media|floatformat:2 }}</li>
+    {% endfor %}
+</ul>

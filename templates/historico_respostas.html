@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}Histórico de Respostas{% endblock %}
+
+{% block content %}
+<h2>📜 Histórico do Feedback #{{ feedback.id }}</h2>
+
+<div style="background:white;padding:20px;border-radius:8px;
+            box-shadow:0 2px 6px rgba(0,0,0,.1);max-width:700px">
+
+    <p><strong>Setor:</strong> {{ feedback.setor.nome }}</p>
+
+    <p><strong>Mensagem enviada:</strong></p>
+    <p style="background:#f1f5f9;padding:10px;border-radius:5px">
+        {{ feedback.mensagem }}
+    </p>
+
+    <hr>
+
+    {% if respostas %}
+        {% for resposta in respostas %}
+            <div style="margin-bottom:15px">
+                <p><strong>Respondido por:</strong> {{ resposta.autor.username }}</p>
+                <p><strong>Data:</strong> {{ resposta.criado_em|date:"d/m/Y H:i" }}</p>
+
+                <p style="background:#ecfeff;padding:10px;border-radius:5px">
+                    {{ resposta.texto }}
+                </p>
+            </div>
+            <hr>
+        {% endfor %}
+    {% else %}
+        <p style="color:#dc2626"><strong>Ainda não há respostas.</strong></p>
+    {% endif %}
+
+    <a href="{% url 'dashboard' %}"
+       style="display:inline-block;margin-top:10px;
+              background:#2563eb;color:white;
+              padding:6px 12px;border-radius:4px;
+              text-decoration:none">
+        Voltar ao Dashboard
+    </a>
+</div>
+{% endblock %}

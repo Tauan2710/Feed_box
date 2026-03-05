@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+<div class="min-h-[70vh] flex items-center justify-center p-6">
+    <div class="max-w-md w-full bg-white rounded-[40px] shadow-2xl p-10 text-center border border-gray-50 animate__animated animate__zoomIn">
+        
+        <div class="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-8 animate__animated animate__bounceIn animate__delay-1s">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+            </svg>
+        </div>
+
+        <h1 class="text-3xl font-black text-gray-800 mb-4 uppercase italic">Obrigado!</h1>
+        
+        <p class="text-gray-500 mb-10 leading-relaxed">
+            Sua participação é fundamental para construirmos um ambiente de trabalho cada vez melhor. Suas respostas foram enviadas com sucesso ao **RH Especialista**.
+        </p>
+
+        <div class="space-y-4">
+            <a href="{% url 'enviar_feedback' %}" class="block w-full bg-gray-900 text-white font-black py-4 rounded-2xl hover:bg-blue-600 transition-all uppercase text-xs tracking-widest shadow-lg text-center">
+                Voltar para Enviar Feedback
+            </a>
+            
+            <p class="text-[10px] text-gray-400 font-bold uppercase tracking-tighter">
+                Sua resposta foi registrada de forma segura.
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock %}

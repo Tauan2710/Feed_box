@@ -1,0 +1,12 @@
+<h1>Feedbacks</h1>
+
+<ul>
+{% for f in feedbacks %}
+    <li>
+        {{ f.protocolo }} | {{ f.categoria }} | {{ f.status }}
+        <a href="{% url 'responder_feedback' f.id %}">Responder</a>
+    </li>
+{% empty %}
+    <li>Nenhum feedback encontrado.</li>
+{% endfor %}
+</ul>

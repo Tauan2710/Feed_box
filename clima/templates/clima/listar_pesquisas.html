@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% block title %}Pesquisas de Clima{% endblock %}
+
+{% block content %}
+<script src="https://cdn.tailwindcss.com"></script>
+
+<div class="max-w-6xl mx-auto p-6">
+    <div class="flex flex-col md:flex-row md:items-center justify-between mb-8 gap-4">
+        <div>
+            <h1 class="text-3xl font-black text-gray-800 uppercase italic">
+                {% if user.is_superuser %}
+                    Gestão de <span class="text-blue-600">Pesquisas</span>
+                {% else %}
+                    Pesquisas <span class="text-green-600">Disponíveis</span>
+                {% endif %}
+            </h1>
+            <p class="text-gray-500">
+                {% if user.is_superuser %}
+                    Painel administrativo para controle de formulários de clima.
+                {% else %}
+                    Selecione uma pesquisa abaixo para contribuir com o clima organizacional.
+                {% endif %}
+            </p>
+        </div>
+        
+        {% if user.is_superuser %}
+        <a href="/clima/nova-pesquisa/" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-2xl transition-all uppercase text-xs tracking-widest flex items-center shadow-lg shadow-blue-200">
+            Nova Pesquisa
+        </a>
+        {% endif %}
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {% for pesquisa in pesquisas %}
+        <div class="bg-white border {% if user.is_superuser %}border-blue-100 shadow-blue-50{% else %}border-gray-100{% endif %} rounded-3xl p-6 shadow-sm hover:shadow-xl transition-all group flex flex-col justify-between">
+            
+            <div>
+                <div class="flex items-center justify-between mb-4">
+                    <span class="{% if pesquisa.ativa %}bg-green-100 text-green-700{% else %}bg-gray-100 text-gray-400{% endif %} text-[10px] font-black px-3 py-1 rounded-full uppercase italic">
+                        {{ pesquisa.ativa|yesno:"Ativa,Inativa" }}
+                    </span>
+                    <span class="text-gray-400 text-xs">{{ pesquisa.data_inicio|date:"d/m/Y" }}</span>
+                </div>
+                
+                <h3 class="text-xl font-bold text-gray-800 mb-2">{{ pesquisa.titulo }}</h3>
+                <p class="text-gray-500 text-sm mb-6 line-clamp-2 italic">{{ pesquisa.descricao }}</p>
+            </div>
+
+            <div class="space-y-3">
+                {% if user.is_superuser %}
+                    <div class="grid grid-cols-1 gap-2">
+                        <a href="{% url 'editar_pesquisa' pesquisa.id %}" 
+                           class="flex items-center justify-center bg-amber-50 text-amber-600 py-3 rounded-2xl hover:bg-amber-500 hover:text-white transition-all text-xs font-black uppercase tracking-widest">
+                            Editar Conteúdo
+                        </a>
+                        
+                        <a href="{% url 'excluir_pesquisa' pesquisa.id %}" 
+                           class="flex items-center justify-center bg-red-50 text-red-600 py-3 rounded-2xl hover:bg-red-600 hover:text-white transition-all text-xs font-black uppercase tracking-widest">
+                            Apagar Pesquisa
+                        </a>
+                    </div>
+                {% else %}
+                    <a href="{% url 'responder_pesquisa' pesquisa.id %}" 
+                       class="block text-center bg-gray-900 text-white font-black py-4 rounded-2xl hover:bg-green-600 transition-all uppercase text-xs tracking-widest shadow-md">
+                        Responder Agora
+                    </a>
+                {% endif %}
+            </div>
+        </div>
+        {% empty %}
+        <div class="col-span-full bg-gray-50 border-2 border-dashed border-gray-200 rounded-3xl p-12 text-center">
+            <p class="text-gray-400 font-medium italic">Nenhuma pesquisa encontrada.</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

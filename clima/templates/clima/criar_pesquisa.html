@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h2>📊 Criar Pesquisa de Clima</h2>
+
+<form method="post" style="max-width:500px;background:white;padding:20px;border-radius:8px">
+    {% csrf_token %}
+
+    {{ form.as_p }}
+
+    <button type="submit">Salvar Pesquisa</button>
+</form>
+
+{% endblock %}

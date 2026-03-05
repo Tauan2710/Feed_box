@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %}Confirmar Exclusão{% endblock %}
+
+{% block content %}
+<script src="https://cdn.tailwindcss.com"></script>
+
+<div class="min-h-[80vh] flex items-center justify-center p-6">
+    <div class="max-w-md w-full bg-white rounded-3xl shadow-2xl border border-gray-100 overflow-hidden animate__animated animate__fadeInUp">
+        
+        <div class="bg-red-50 p-8 text-center">
+            <div class="w-20 h-20 bg-red-100 text-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                </svg>
+            </div>
+            <h2 class="text-2xl font-black text-gray-800 uppercase tracking-tight">Excluir Pesquisa?</h2>
+            <p class="text-gray-500 text-sm mt-2 font-medium">Esta ação não pode ser desfeita e todos os resultados associados serão perdidos.</p>
+        </div>
+
+        <div class="p-8">
+            <div class="bg-gray-50 rounded-2xl p-4 border border-gray-100 mb-8">
+                <span class="text-[10px] font-black text-gray-400 uppercase block mb-1">Título da Pesquisa</span>
+                <span class="text-lg font-bold text-gray-700 italic">"{{ pesquisa.titulo }}"</span>
+            </div>
+
+            <form method="POST" class="flex flex-col gap-3">
+                {% csrf_token %}
+                
+                <button type="submit" class="w-full bg-red-600 text-white py-4 rounded-2xl font-black uppercase text-xs tracking-widest hover:bg-red-700 transition-all shadow-lg shadow-red-200 active:scale-[0.98]">
+                    Sim, Confirmar Exclusão
+                </button>
+
+                <a href="{% url 'gerenciar_pesquisas' %}" class="w-full bg-gray-100 text-gray-500 py-4 rounded-2xl font-black uppercase text-xs tracking-widest hover:bg-gray-200 transition-all text-center">
+                    Cancelar e Voltar
+                </a>
+            </form>
+        </div>
+
+        <div class="bg-gray-50 py-4 px-8 border-t border-gray-100">
+            <p class="text-[9px] text-gray-400 text-center font-bold uppercase tracking-tighter">
+                Segurança RH Especialista • ID da Pesquisa: #{{ pesquisa.id }}
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock %}

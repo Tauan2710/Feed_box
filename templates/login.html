@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Acesso Restrito - RH{% endblock %}
+
+{% block content %}
+<script src="https://cdn.tailwindcss.com"></script>
+
+<div class="min-h-[80vh] flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-md w-full space-y-8 p-10 bg-white rounded-[40px] shadow-2xl border border-gray-100 animate__animated animate__fadeInUp">
+        
+        <div class="flex flex-col items-center justify-center w-full text-center">
+            
+            <div class="w-32 h-32 mb-6 overflow-hidden rounded-3xl shadow-lg border border-gray-100 flex items-center justify-center bg-white transform transition-transform hover:scale-105">
+                <img src="{% static 'images/seu_logo.png' %}" 
+                     alt="Logo Feedbox" 
+                     class="w-full h-full object-cover">
+            </div>
+            
+            <h2 class="text-3xl font-black text-gray-900 italic tracking-tight uppercase leading-none">
+                Painel <span class="text-blue-600">RH Especialista</span>
+            </h2>
+            
+            <p class="mt-3 text-[10px] text-gray-400 font-black uppercase tracking-[0.2em]">
+                Área restrita para administradores e gerentes
+            </p>
+        </div>
+        
+        <form class="mt-8 space-y-6" method="POST">
+            {% csrf_token %}
+            
+            <div class="space-y-4">
+                <div>
+                    <label class="text-[10px] font-black uppercase text-gray-400 ml-2 mb-1 block tracking-widest">Usuário</label>
+                    <input name="username" type="text" required 
+                        class="appearance-none rounded-2xl relative block w-full px-4 py-4 border border-gray-100 placeholder-gray-300 text-gray-900 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white transition-all font-medium" 
+                        placeholder="Seu usuário">
+                </div>
+                
+                <div>
+                    <label class="text-[10px] font-black uppercase text-gray-400 ml-2 mb-1 block tracking-widest">Senha</label>
+                    <input name="password" type="password" required 
+                        class="appearance-none rounded-2xl relative block w-full px-4 py-4 border border-gray-100 placeholder-gray-300 text-gray-900 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white transition-all font-medium" 
+                        placeholder="••••••••">
+                </div>
+            </div>
+
+            {% if form.errors or error %}
+            <div class="text-red-500 text-[10px] font-black text-center bg-red-50 py-3 rounded-2xl uppercase tracking-tighter animate__animated animate__shakeX">
+                Usuário ou senha incorretos.
+            </div>
+            {% endif %}
+
+            <div>
+                <button type="submit" 
+                    class="group relative w-full flex justify-center py-4 px-4 border border-transparent text-xs font-black rounded-2xl text-white bg-blue-600 hover:bg-blue-700 shadow-lg shadow-blue-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all transform hover:scale-[1.02] uppercase tracking-widest">
+                    Entrar no Sistema
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<style>
+    /* Suavização de renderização para fontes e imagens */
+    body {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    
+    img {
+        image-rendering: -webkit-optimize-contrast;
+    }
+</style>
+{% endblock %}

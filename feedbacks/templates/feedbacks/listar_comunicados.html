@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="min-h-screen bg-gray-50 py-12 px-4">
+    <div class="max-w-4xl mx-auto">
+        
+        <div class="flex items-center justify-between mb-8">
+            <div>
+                <h1 class="text-3xl font-black text-gray-900 tracking-tight">Mural de <span class="text-purple-600">Comunicados</span></h1>
+                <p class="text-gray-500">Fique por dentro das atualizações e avisos da empresa.</p>
+            </div>
+            <a href="{% url 'enviar_feedback' %}" class="flex items-center gap-2 text-sm font-bold text-purple-600 hover:text-purple-700 transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                </svg>
+                Voltar ao Início
+            </a>
+        </div>
+
+        <div class="space-y-6">
+            {% for comunicado in comunicados %}
+            <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow">
+                <div class="p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="px-3 py-1 bg-purple-100 text-purple-700 text-xs font-bold rounded-full uppercase">
+                            {{ comunicado.get_tipo_display|default:"Aviso" }}
+                        </span>
+                        <span class="text-sm text-gray-400 font-medium">
+                            {{ comunicado.data_criacao|date:"d/m/Y" }}
+                        </span>
+                    </div>
+                    
+                    <h2 class="text-xl font-bold text-gray-800 mb-3">{{ comunicado.titulo }}</h2>
+                    
+                    <div class="text-gray-600 leading-relaxed space-y-4">
+                        {{ comunicado.conteudo|linebreaks }}
+                    </div>
+                </div>
+                
+                {% if comunicado.imagem %}
+                <div class="border-t border-gray-50">
+                    <img src="{{ comunicado.imagem.url }}" alt="{{ comunicado.titulo }}" class="w-full h-auto max-h-96 object-cover">
+                </div>
+                {% endif %}
+            </div>
+            {% empty %}
+            <div class="text-center py-20 bg-white rounded-3xl border-2 border-dashed border-gray-200">
+                <div class="bg-gray-50 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z" />
+                    </svg>
+                </div>
+                <h3 class="text-lg font-bold text-gray-800">Nenhum comunicado no momento</h3>
+                <p class="text-gray-500">Novas atualizações aparecerão aqui assim que publicadas.</p>
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% block title %}Editar Comunicado{% endblock %}
+
+{% block content %}
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+<div class="max-w-3xl mx-auto p-6 animate__animated animate__fadeIn">
+    
+    <div class="flex items-center justify-between mb-8">
+        <div>
+            <h1 class="text-2xl font-black text-gray-800 uppercase italic">Editar <span class="text-blue-600">Comunicado</span></h1>
+            <p class="text-gray-500 text-xs font-bold uppercase tracking-widest">ID do Registro: #{{ comunicado.id }}</p>
+        </div>
+        <a href="{% url 'gerenciar_mural' %}" class="bg-gray-100 text-gray-600 px-4 py-2 rounded-xl text-[10px] font-black hover:bg-gray-200 transition uppercase shadow-sm border border-gray-200">
+            Cancelar e Voltar
+        </a>
+    </div>
+
+    <div class="bg-white p-8 rounded-3xl shadow-xl border border-gray-100">
+        <form method="POST" class="space-y-6">
+            {% csrf_token %}
+            
+            <div>
+                <label class="block text-[10px] font-black text-gray-400 uppercase mb-2 ml-1">Título do Aviso</label>
+                <input type="text" name="titulo" value="{{ comunicado.titulo }}" 
+                    class="w-full p-4 rounded-2xl border border-gray-100 bg-gray-50 focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none font-bold text-gray-700 transition-all" required>
+            </div>
+
+            <div>
+                <label class="block text-[10px] font-black text-gray-400 uppercase mb-2 ml-1">Mensagem Completa</label>
+                <textarea name="conteudo" rows="6" 
+                    class="w-full p-4 rounded-2xl border border-gray-100 bg-gray-50 focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none text-gray-600 transition-all" required>{{ comunicado.conteudo }}</textarea>
+            </div>
+
+            <div class="flex items-center gap-3 p-4 bg-blue-50 rounded-2xl border border-blue-100">
+                <div class="relative inline-block w-10 h-5">
+                    <input type="checkbox" name="ativo" id="ativo" {% if comunicado.ativo %}checked{% endif %}
+                        class="peer appearance-none w-10 h-5 bg-gray-300 rounded-full checked:bg-blue-600 cursor-pointer transition-colors" />
+                    <label for="ativo" class="absolute top-1 left-1 bg-white w-3 h-3 rounded-full transition-transform peer-checked:translate-x-5 cursor-pointer"></label>
+                </div>
+                <div>
+                    <span class="block text-xs font-black text-blue-900 uppercase">Comunicado Ativo</span>
+                    <span class="block text-[10px] text-blue-700 italic">Se desmarcado, o aviso não aparecerá para os colaboradores.</span>
+                </div>
+            </div>
+
+            <div class="pt-4">
+                <button type="submit" class="w-full bg-blue-600 text-white py-4 rounded-2xl font-black uppercase text-xs tracking-widest hover:bg-blue-700 transition-all shadow-lg shadow-blue-200 flex items-center justify-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+                    </svg>
+                    Salvar Alterações
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <div class="mt-8 flex justify-center">
+        <a href="{% url 'excluir_comunicado' comunicado.pk %}" 
+           onclick="return confirm('Tem certeza absoluta que deseja excluir este comunicado? Esta ação não pode ser desfeita.')"
+           class="text-[10px] font-black text-red-400 hover:text-red-600 uppercase transition border-b border-transparent hover:border-red-600">
+            Excluir este comunicado permanentemente
+        </a>
+    </div>
+
+</div>
+{% endblock %}

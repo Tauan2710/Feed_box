@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %}Responder Feedback{% endblock %}
+
+{% block content %}
+<h2>📝 Responder Feedback</h2>
+
+<div style="background:white;padding:20px;border-radius:8px;
+            box-shadow:0 2px 6px rgba(0,0,0,.1);max-width:600px">
+
+    <p><strong>Setor:</strong> {{ feedback.setor.nome }}</p>
+
+    <p><strong>Mensagem:</strong></p>
+    <p style="background:#f1f5f9;padding:10px;border-radius:5px">
+        {{ feedback.mensagem }}
+    </p>
+
+    <form method="post">
+        {% csrf_token %}
+
+        <label><strong>Resposta</strong></label><br>
+
+        <textarea name="resposta"
+                  rows="4"
+                  style="width:100%"
+                  required>{{ resposta.texto|default_if_none:"" }}</textarea>
+
+        <br><br>
+
+        <button type="submit">
+            {% if resposta %}
+                Atualizar Resposta
+            {% else %}
+                Salvar Resposta
+            {% endif %}
+        </button>
+
+        <a href="{% url 'dashboard' %}"
+           class="button"
+           style="background:#6b7280">
+            Voltar
+        </a>
+    </form>
+</div>
+{% endblock %}
