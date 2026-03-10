@@ -23,8 +23,10 @@ def analisar_sentimento_ia(texto):
             return 'Negativo'
     except:
         pass
+    
     palavras_positivas = ['bom', 'boa', 'ótimo', 'otimo', 'excelente', 'parabéns', 'parabens', 'gosto', 'gostei', 'feliz', 'obrigado', 'ajudou', 'eficiente', 'sucesso']
     palavras_negativas = ['ruim', 'péssimo', 'pessimo', 'horrível', 'horrivel', 'difícil', 'dificil', 'problema', 'erro', 'falha', 'atraso', 'absurdo', 'errado', 'pior', 'calor', 'quebrado']
+    
     if any(palavra in texto_lower for palavra in palavras_negativas):
         return 'Negativo'
     if any(palavra in texto_lower for palavra in palavras_positivas):
@@ -39,12 +41,10 @@ def dashboard(request):
     if user.is_superuser:
         feedbacks_base = Feedback.objects.all()
         setores_list = Setor.objects.all()
-        # Corrigido para nota_enps
         pesquisas_recentes = PesquisaClima.objects.all().annotate(
             total_respostas=Count('respostas'),
             media_nota=Avg('respostas__nota_enps')
         ).order_by('-id')[:5]
-        # Corrigido para nota_enps
         clima_dados = RespostaClima.objects.values('nota_enps').annotate(total=Count('id'))
     else:
         feedbacks_base = Feedback.objects.filter(setor__responsavel=user)
@@ -69,7 +69,7 @@ def dashboard(request):
         if total_enps > 0:
             promotores = fbs_enps.filter(nota_enps__gte=9).count()
             detratores = fbs_enps.filter(nota_enps__lte=6).count()
-            enps_score = ((promotores - detratores) / total_enps) * 100
+            enps_score = ((promotores - detractors) / total_enps) * 100
     except Exception:
         enps_score = 0
 
@@ -121,6 +121,7 @@ def enviar_feedback(request):
                     'protocolo_sucesso': protocolo_gerado,
                 })
             return redirect('enviar_feedback')
+    
     setores = Setor.objects.all()
     feedbacks_lista = Feedback.objects.filter(is_sensivel=False).order_by('-data_criacao')
     paginator = Paginator(feedbacks_lista, 5)
@@ -163,7 +164,7 @@ def consultar_protocolo(request):
             erro = "Protocolo não encontrado."
     return render(request, 'feedbacks/consultar_protocolo.html', {'feedback': feedback, 'erro': erro, 'protocolo': protocolo})
 
-@login_required
+# AJUSTADO: Removido @login_required para permitir acesso público e volta dinâmica
 def listar_comunicados(request):
     comunicados = Comunicado.objects.filter(ativo=True).order_by('-data_criacao')
     return render(request, 'feedbacks/listar_comunicados.html', {'comunicados': comunicados})
