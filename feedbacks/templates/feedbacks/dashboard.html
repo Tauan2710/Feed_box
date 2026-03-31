@@ -11,7 +11,7 @@
     
     <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
         <div>
-            <h1 class="text-3xl font-bold text-gray-800 italic">Painel <span class="text-blue-600">RH Especialista</span></h1>
+            <h1 class="text-3xl font-bold text-gray-800 italic uppercase">Painel <span class="text-blue-600">RH Especialista</span></h1>
             <p class="text-gray-500 text-sm">
                 Bem-vindo, <span class="font-black text-gray-800">{{ request.user.username }}</span> 
                 {% if request.user.is_superuser %}
@@ -34,7 +34,7 @@
 
             <form method="GET" class="flex items-center gap-2 bg-white p-2 rounded-xl shadow-sm border border-gray-100">
                 <select name="setor" class="text-xs font-bold border-none focus:ring-0 bg-transparent uppercase text-gray-600 outline-none cursor-pointer">
-                    <option value="">Setores</option>
+                    <option value="">Todos os Setores</option>
                     {% for s in setores %}
                         <option value="{{ s.id }}" {% if request.GET.setor == s.id|stringformat:"i" %}selected{% endif %}>{{ s.nome }}</option>
                     {% endfor %}
@@ -50,7 +50,7 @@
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-        <div class="bg-white p-6 rounded-[1.5rem] border border-gray-100 shadow-sm flex justify-between items-center transition-all hover:shadow-md">
+        <div class="bg-white p-6 rounded-[1.5rem] border border-gray-100 shadow-sm flex justify-between items-center">
             <div>
                 <p class="text-slate-400 text-[10px] font-black uppercase tracking-widest">Entradas Totais</p>
                 <h2 class="text-3xl font-black text-slate-800 mt-1">{{ total|default:0 }}</h2>
@@ -60,7 +60,7 @@
             </div>
         </div>
 
-        <div class="bg-white p-6 rounded-[1.5rem] border border-gray-100 shadow-sm flex justify-between items-center transition-all hover:shadow-md">
+        <div class="bg-white p-6 rounded-[1.5rem] border border-gray-100 shadow-sm flex justify-between items-center">
             <div>
                 <p class="text-slate-400 text-[10px] font-black uppercase tracking-widest">Resolvidos</p>
                 <h2 class="text-3xl font-black text-emerald-600 mt-1">{{ respondidos|default:0 }}</h2>
@@ -70,7 +70,7 @@
             </div>
         </div>
 
-        <div class="bg-white p-6 rounded-[1.5rem] border border-gray-100 shadow-sm flex justify-between items-center transition-all hover:shadow-md">
+        <div class="bg-white p-6 rounded-[1.5rem] border border-gray-100 shadow-sm flex justify-between items-center">
             <div>
                 <p class="text-slate-400 text-[10px] font-black uppercase tracking-widest">Aguardando</p>
                 <h2 class="text-3xl font-black text-amber-500 mt-1">{{ pendentes|default:0 }}</h2>
@@ -80,7 +80,7 @@
             </div>
         </div>
 
-        <div class="bg-white p-6 rounded-[1.5rem] border border-gray-100 shadow-sm flex justify-between items-center transition-all hover:shadow-md">
+        <div class="bg-white p-6 rounded-[1.5rem] border border-gray-100 shadow-sm flex justify-between items-center">
             <div>
                 <p class="text-slate-400 text-[10px] font-black uppercase tracking-widest">eNPS Atual</p>
                 <h2 class="text-3xl font-black text-slate-800 mt-1">{% if enps_score > 0 %}+{% endif %}{{ enps_score|default:0 }}</h2>
@@ -93,140 +93,95 @@
 
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
         <div class="bg-white p-8 rounded-3xl shadow-xl border border-gray-100 flex flex-col items-center justify-center relative overflow-hidden">
-            <h3 class="text-xs font-black text-gray-400 uppercase mb-4">Lealdade (eNPS)</h3>
+            <h3 class="text-xs font-black text-gray-400 uppercase mb-4 tracking-widest">Lealdade (eNPS)</h3>
             <div class="w-full h-48 relative">
                 <canvas id="enpsGauge"></canvas>
-                <div class="absolute inset-0 flex flex-col items-center justify-center mt-8">
-                    <span class="text-3xl font-black text-gray-800">{{ enps_score|default:0 }}</span>
-                    <span id="enpsLabel" class="text-[9px] font-black uppercase">Calculando...</span>
+                <div class="absolute inset-0 flex flex-col items-center justify-center mt-10">
+                    <span class="text-4xl font-black text-gray-800">{{ enps_score|default:0 }}</span>
+                    <span id="enpsLabel" class="text-[9px] font-black uppercase tracking-widest">Calculando...</span>
                 </div>
             </div>
-            <p class="text-[10px] text-gray-400 mt-2 italic">Baseado em {{ total_enps|default:0 }} respostas</p>
+            <p class="text-[10px] text-gray-400 mt-2 italic">Amostra: {{ total_enps|default:0 }} avaliações</p>
         </div>
 
         <div class="bg-white p-8 rounded-3xl shadow-xl border border-gray-100">
-            <h3 class="text-xs font-black text-gray-400 uppercase mb-6">Frequência por Nota</h3>
-            <canvas id="dimensaoChart"></canvas>
+            <h3 class="text-xs font-black text-gray-400 uppercase mb-6 tracking-widest">Distribuição de Notas</h3>
+            <div class="h-48">
+                <canvas id="dimensaoChart"></canvas>
+            </div>
         </div>
 
         <div class="bg-white p-8 rounded-3xl shadow-xl border border-gray-100">
-            <h3 class="text-xs font-black text-gray-400 uppercase mb-6">📊 Média por Pesquisa</h3>
-            {% if request.user.is_superuser %}
-                <canvas id="climaChart"></canvas>
-            {% else %}
-                <div class="h-full flex items-center justify-center text-gray-300 italic text-xs text-center">Acesso restrito ao Master</div>
-            {% endif %}
+            <h3 class="text-xs font-black text-gray-400 uppercase mb-6 tracking-widest">Evolução de Clima</h3>
+            <div class="h-48">
+                {% if request.user.is_superuser %}
+                    <canvas id="climaChart"></canvas>
+                {% else %}
+                    <div class="h-full flex items-center justify-center text-gray-300 italic text-xs text-center border-2 border-dashed rounded-2xl">Acesso restrito ao Master</div>
+                {% endif %}
+            </div>
         </div>
     </div>
 
     {% if request.user.is_superuser %}
-    <div class="grid grid-cols-1 gap-8">
-        <div class="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden">
-            <div class="bg-purple-600 p-6 flex justify-between items-center">
-                <h3 class="text-lg font-bold text-white italic uppercase">Resultados de Clima</h3>
-            </div>
-            <div class="overflow-x-auto">
-                <table class="w-full text-left">
-                    <thead class="bg-gray-50 text-gray-500 text-[10px] font-black uppercase">
-                        <tr>
-                            <th class="px-6 py-4">Pesquisa</th>
-                            <th class="px-6 py-4 text-center">Respostas</th>
-                            <th class="px-6 py-4 text-center">Status</th>
-                            <th class="px-6 py-4 text-right">Ação</th>
-                        </tr>
-                    </thead>
-                    <tbody class="divide-y divide-gray-50">
-                        {% for p in pesquisas_recentes %}
-                        <tr class="hover:bg-purple-50 transition-all group">
-                            <td class="px-6 py-4">
-                                <div class="flex items-center gap-3">
-                                    <div class="p-2 bg-purple-50 rounded-lg group-hover:bg-purple-100 transition">
-                                        <i data-lucide="bar-chart" class="w-5 h-5 text-purple-600"></i>
-                                    </div>
-                                    <span class="font-bold text-gray-700 text-sm">{{ p.titulo }}</span>
-                                </div>
-                            </td>
-                            <td class="px-6 py-4 text-center">
-                                <span class="inline-block bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-xs font-black">{{ p.total_respostas }}</span>
-                            </td>
-                            <td class="px-6 py-4 text-center">
-                                {% if p.ativa %} 
-                                    <span class="inline-flex items-center gap-1.5 text-green-500 font-black text-[10px] uppercase">
-                                        <span class="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></span> Ativa
-                                    </span> 
-                                {% else %} 
-                                    <span class="text-gray-400 font-bold text-[10px] uppercase">Encerrada</span> 
-                                {% endif %}
-                            </td>
-                            <td class="px-6 py-4 text-right">
-                                <a href="{% url 'resultados_pesquisa' p.id %}" class="inline-flex items-center gap-2 bg-white border-2 border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white px-4 py-2 rounded-xl text-[10px] font-black uppercase transition-all shadow-sm">Ver Resultado</a>
-                            </td>
-                        </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-    {% endif %}
-
     <div class="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden">
-        <div class="bg-gray-800 p-6 flex justify-between items-center">
-            <h3 class="text-lg font-bold text-white italic uppercase">Fila de Atendimento & Análise de Sentimento</h3>
+        <div class="bg-purple-600 p-6 flex justify-between items-center">
+            <h3 class="text-lg font-bold text-white italic uppercase tracking-tight">Resultados de Clima</h3>
         </div>
         <div class="overflow-x-auto">
             <table class="w-full text-left">
-                <thead class="bg-gray-50 text-gray-400 text-[10px] font-black uppercase">
+                <thead class="bg-gray-50 text-gray-500 text-[10px] font-black uppercase">
                     <tr>
-                        <th class="px-6 py-3">Categoria / Sentimento</th>
-                        <th class="px-6 py-3">Mensagem e Nota eNPS</th>
-                        <th class="px-6 py-3 text-center">Ações</th>
+                        <th class="px-6 py-4">Pesquisa</th>
+                        <th class="px-6 py-4 text-center">Respostas</th>
+                        <th class="px-6 py-4 text-center">Status</th>
+                        <th class="px-6 py-4 text-right">Ação</th>
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-gray-50">
-                    {% for feedback in feedbacks %}
-                    <tr class="hover:bg-blue-50/30 transition-all">
-                        <td class="px-6 py-4 w-48">
-                            <span class="bg-blue-50 text-blue-700 px-2 py-1 rounded text-[9px] font-black uppercase block w-fit mb-2">{{ feedback.get_categoria_display }}</span>
-                            {% if feedback.sentimento == 'Positivo' %}
-                                <span class="bg-green-100 text-green-700 px-2 py-1 rounded-full text-[10px] font-black italic">😊 POSITIVO</span>
-                            {% elif feedback.sentimento == 'Negativo' %}
-                                <span class="bg-red-100 text-red-700 px-2 py-1 rounded-full text-[10px] font-black italic">😡 CRÍTICO</span>
-                            {% else %}
-                                <span class="bg-gray-100 text-gray-600 px-2 py-1 rounded-full text-[10px] font-black italic">😐 NEUTRO</span>
-                            {% endif %}
-                        </td>
+                    {% for p in pesquisas_recentes %}
+                    <tr class="hover:bg-purple-50 transition-all group">
                         <td class="px-6 py-4">
-                            <p class="text-sm font-medium text-gray-800 leading-relaxed italic">"{{ feedback.mensagem }}"</p>
-                            {% if feedback.nota_enps %}
-                                <div class="mt-2 flex items-center gap-2">
-                                    <span class="text-[10px] font-black text-gray-400 uppercase tracking-widest">Nota eNPS:</span>
-                                    <span class="text-xs font-bold {% if feedback.nota_enps >= 9 %}text-green-600{% elif feedback.nota_enps <= 6 %}text-red-600{% else %}text-amber-600{% endif %}">{{ feedback.nota_enps }}/10</span>
-                                </div>
-                            {% endif %}
+                            <div class="flex items-center gap-3">
+                                <div class="p-2 bg-purple-50 rounded-lg"><i data-lucide="bar-chart" class="w-4 h-4 text-purple-600"></i></div>
+                                <span class="font-bold text-gray-700 text-sm">{{ p.titulo }}</span>
+                            </div>
                         </td>
                         <td class="px-6 py-4 text-center">
-                            {% if not feedback.resposta %}
-                                <a href="{% url 'responder_feedback' feedback.id %}" class="bg-blue-600 text-white text-[10px] px-4 py-2 rounded-lg font-black shadow-lg hover:bg-blue-700 transition uppercase">Responder</a>
-                            {% else %}
-                                <span class="text-green-500 font-black text-[10px] uppercase">Finalizado</span>
+                            <span class="inline-block bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-xs font-black">{{ p.total_respostas }}</span>
+                        </td>
+                        <td class="px-6 py-4 text-center">
+                            {% if p.ativa %} 
+                                <span class="text-green-500 font-black text-[10px] uppercase animate-pulse">● Ativa</span> 
+                            {% else %} 
+                                <span class="text-gray-400 font-bold text-[10px] uppercase">Encerrada</span> 
                             {% endif %}
+                        </td>
+                        <td class="px-6 py-4 text-right">
+                            <a href="{% url 'resultados_pesquisa' p.id %}" class="bg-white border-2 border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white px-4 py-2 rounded-xl text-[10px] font-black uppercase transition-all">Ver Resultado</a>
                         </td>
                     </tr>
                     {% empty %}
-                    <tr><td colspan="3" class="px-6 py-8 text-center text-gray-400 italic">Nenhum feedback recebido.</td></tr>
+                    <tr><td colspan="4" class="px-6 py-8 text-center text-gray-400 italic">Nenhuma pesquisa registrada.</td></tr>
                     {% endfor %}
                 </tbody>
             </table>
         </div>
     </div>
-</div>
+    {% endif %}
+
+    <div id="dashboard-feedback-section">
+        {% include 'feedbacks/_dashboard_feedback_section.html' %}
+    </div>
 
 <script>
     lucide.createIcons();
-    const enpsVal = {{ enps_score|default:0 }};
+
+    // Gauge eNPS
+    const enpsVal = Number({{ enps_score|default:0 }});
     const ctxEnps = document.getElementById('enpsGauge')?.getContext('2d');
     if(ctxEnps) {
+        const normalizedValue = Math.min(Math.max(enpsVal + 100, 0), 200);
         let enpsColor = '#ef4444';
         let enpsLabel = 'Zona Crítica';
         if (enpsVal >= 75) { enpsColor = '#10b981'; enpsLabel = 'Excelência'; }
@@ -236,33 +191,88 @@
         document.getElementById('enpsLabel').style.color = enpsColor;
         new Chart(ctxEnps, {
             type: 'doughnut',
-            data: { datasets: [{ data: [Math.abs(enpsVal) + 100, 200 - (Math.abs(enpsVal) + 100)], backgroundColor: [enpsColor, '#f3f4f6'], borderWidth: 0, circumference: 180, rotation: 270 }] },
-            options: { cutout: '85%', plugins: { legend: { display: false } } }
+            data: {
+                labels: ['Pontuação', 'Base'],
+                datasets: [{
+                    data: [normalizedValue, 200 - normalizedValue],
+                    backgroundColor: [enpsColor, '#e5e7eb'],
+                    borderWidth: 0,
+                    hoverOffset: 0
+                }]
+            },
+            options: {
+                cutout: '80%',
+                circumference: 180,
+                rotation: -90,
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: { enabled: false }
+                },
+                elements: {
+                    arc: { borderWidth: 0 }
+                }
+            }
         });
     }
 
+    // Barras Frequência
     const ctxDim = document.getElementById('dimensaoChart')?.getContext('2d');
     if(ctxDim) {
         new Chart(ctxDim, {
             type: 'bar',
-            data: { 
-                labels: ['0-6', '7-8', '9-10'], 
-                datasets: [{ label: 'Qtd', data: [{{ detratores_count|default:0 }}, {{ neutros_count|default:0 }}, {{ promotores_count|default:0 }}], backgroundColor: ['#ef4444', '#f59e0b', '#10b981'], borderRadius: 5 }] 
-            },
-            options: { scales: { y: { beginAtZero: true } }, plugins: { legend: { display: false } } }
+            data: { labels: ['0-6', '7-8', '9-10'], datasets: [{ data: [{{ detratores_count|default:0 }}, {{ neutros_count|default:0 }}, {{ promotores_count|default:0 }}], backgroundColor: ['#ef4444', '#f59e0b', '#10b981'], borderRadius: 5 }] },
+            options: { maintainAspectRatio: false, plugins: { legend: { display: false } } }
         });
     }
 
+    // Linha Evolução Clima
     const ctxClima = document.getElementById('climaChart')?.getContext('2d');
     if(ctxClima) {
         new Chart(ctxClima, {
             type: 'line',
             data: { 
-                labels: [{% for p in pesquisas_recentes reversed %}"{{ p.titulo|truncatechars:8 }}",{% endfor %}],
-                datasets: [{ label: 'Média', data: [{% for p in pesquisas_recentes reversed %}{{ p.media_notas|default:0|stringformat:".1f" }},{% endfor %}], borderColor: '#6366f1', tension: 0.4, fill: true, backgroundColor: 'rgba(99, 102, 241, 0.1)' }]
+                labels: [{% for p in pesquisas_recentes reversed %}"{{ p.titulo|truncatechars:10 }}",{% endfor %}],
+                datasets: [{ label: 'Média', data: [{% for p in pesquisas_recentes reversed %}{{ p.media_notas|default:0|stringformat:'.1f' }},{% endfor %}], borderColor: '#6366f1', tension: 0.4, fill: true, backgroundColor: 'rgba(99, 102, 241, 0.1)' }]
             },
-            options: { scales: { y: { min: 0, max: 10 } }, plugins: { legend: { display: false } } }
+            options: { maintainAspectRatio: false, scales: { y: { min: 0, max: 10 } }, plugins: { legend: { display: false } } }
         });
     }
+
+    function initDashboardAjaxPagination() {
+        document.body.addEventListener('click', function(event) {
+            const link = event.target.closest('a.dashboard-ajax-pagination');
+            if (!link) return;
+            event.preventDefault();
+
+            fetch(link.href, {
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest',
+                    'Accept': 'text/html'
+                }
+            })
+            .then(response => {
+                if (!response.ok) throw new Error('Falha ao carregar a página.');
+                return response.text();
+            })
+            .then(html => {
+                const section = document.getElementById('dashboard-feedback-section');
+                if (section) {
+                    section.innerHTML = html;
+                }
+                lucide.createIcons();
+                if (history.pushState) {
+                    history.pushState({}, '', link.href);
+                }
+            })
+            .catch(error => {
+                console.error(error);
+                window.location.href = link.href;
+            });
+        });
+    }
+
+    initDashboardAjaxPagination();
 </script>
 {% endblock %}
