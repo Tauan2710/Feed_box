@@ -1,0 +1,178 @@
+Guia de Deploy do projeto Feedback System no PythonAnywhere
+=========================================================
+
+Este guia foi escrito para o seu projeto Django `feedback_system` existente.
+Ele considera a configuração atual encontrada em `feedback_system/settings.py`.
+
+1. PREPARAÇÃO LOCAL
+-------------------
+
+1.1 Atualizar `settings.py`
+
+- Em `feedback_system/settings.py`, altere:
+
+  DEBUG = False
+
+- Configure `ALLOWED_HOSTS` com o domínio do PythonAnywhere e endereços locais:
+
+  ALLOWED_HOSTS = [
+      'seu-usuario.pythonanywhere.com',
+      'localhost',
+      '127.0.0.1',
+  ]
+
+- Adicione `STATIC_ROOT` abaixo das configurações de static existentes:
+
+  import os
+
+  STATIC_URL = '/static/'
+  STATICFILES_DIRS = [
+      os.path.join(BASE_DIR, 'static'),
+  ]
+  STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+1.2 Remover segredos do código
+
+- O arquivo atual ainda contém `SECRET_KEY` em texto claro.
+- Em produção, é recomendável carregar o `SECRET_KEY` de uma variável de ambiente ou de um arquivo `.env`.
+- No PythonAnywhere, você pode definir variáveis de ambiente na seção "Web" ou usar um pacote como `python-dotenv`.
+
+1.3 Criar `requirements.txt`
+
+- No seu ambiente local, execute:
+
+  pip freeze > requirements.txt
+
+- Verifique o arquivo para garantir que ele contenha todas as dependências do projeto.
+
+1.4 Verificar banco de dados
+
+- Seu projeto usa SQLite:
+
+  DATABASES['default']['ENGINE'] = 'django.db.backends.sqlite3'
+  DATABASES['default']['NAME'] = BASE_DIR / 'db.sqlite3'
+
+- Isso funciona no PythonAnywhere com conta gratuita.
+
+1.5 Garantir que o projeto roda localmente
+
+- Ative seu ambiente virtual.
+- Execute:
+
+  python manage.py migrate
+  python manage.py runserver
+
+- Abra o site local e verifique se as páginas carregam.
+
+2. SUBINDO O CÓDIGO PARA O PYTHONANYWHERE
+----------------------------------------
+
+2.1 Subir pelo Git (recomendado)
+
+- No terminal da máquina local, confira se o projeto está em um repositório Git.
+- No PythonAnywhere, abra o Bash console e rode:
+
+  git clone https://github.com/seu-usuario/seu-repo.git
+
+- Caso já tenha o repo clonado, use `git pull` na pasta do projeto.
+
+3. CRIAR O AMBIENTE VIRTUAL NO PYTHONANYWHERE
+--------------------------------------------
+
+3.1 Criar virtualenv
+
+- No Bash do PythonAnywhere:
+
+  mkvirtualenv --python=/usr/bin/python3.10 feedback_system_env
+
+3.2 Instalar dependências
+
+- Acesse a pasta do projeto clonado no PythonAnywhere e execute:
+
+  pip install -r requirements.txt
+
+4. CONFIGURAÇÃO NA ABA "Web" DO PYTHONANYWHERE
+---------------------------------------------
+
+4.1 Source code
+
+- Defina o caminho para a pasta principal do projeto.
+- Exemplo:
+
+  /home/seu-usuario/feedback_system
+
+4.2 Virtualenv
+
+- Defina o caminho do virtualenv criado:
+
+  /home/seu-usuario/.virtualenvs/feedback_system_env
+
+4.3 Static files
+
+- Configure os URLs e caminhos:
+
+  URL: /static/   Path: /home/seu-usuario/feedback_system/staticfiles
+
+- Se você usar uploads de mídia, também adicione:
+
+  URL: /media/    Path: /home/seu-usuario/feedback_system/media
+
+5. CONFIGURAÇÃO DO ARQUIVO WSGI
+-------------------------------
+
+- Clique no link do arquivo WSGI na aba "Web".
+- Ajuste o conteúdo para apontar para seu projeto:
+
+  import os
+  import sys
+
+  path = '/home/seu-usuario/feedback_system'
+  if path not in sys.path:
+      sys.path.append(path)
+
+  os.environ['DJANGO_SETTINGS_MODULE'] = 'feedback_system.settings'
+
+  from django.core.wsgi import get_wsgi_application
+  application = get_wsgi_application()
+
+6. FINALIZAÇÃO NO TERMINAL DO SERVIDOR
+-------------------------------------
+
+- No Bash do PythonAnywhere, dentro da pasta do projeto:
+
+  python manage.py migrate
+  python manage.py collectstatic
+
+- Se seu projeto precisar dos dados iniciais do `inicial.json`, rode:
+
+  python manage.py loaddata inicial.json
+
+- Crie um superusuário:
+
+  python manage.py createsuperuser
+
+7. RELOAD E TESTE
+------------------
+
+- Volte à aba "Web" e clique em "Reload".
+- Abra o domínio `seu-usuario.pythonanywhere.com`.
+- Verifique telas essenciais como login e dashboard.
+
+DICAS IMPORTANTES
+-----------------
+
+- Caso apareça erro, confira o `Error log` e o `Server log` na aba "Web".
+- Mantenha `DEBUG = False` em produção.
+- Nunca deixe `SECRET_KEY` exposto em código público.
+- Sua conta gratuita PythonAnywhere aceita SQLite e arquivos estáticos.
+
+Especificidades do seu projeto
+------------------------------
+
+- Projeto Django: `feedback_system`
+- Apps instalados: `accounts`, `feedbacks`, `setores`, `clima`
+- Templates globais em: `templates/`
+- Diretório de arquivos estáticos local: `static/`
+- Arquivo de banco local: `db.sqlite3`
+
+Pronto! Esse arquivo traz o passo a passo para subir o seu projeto `feedback_system` no PythonAnywhere com base na configuração atual.
