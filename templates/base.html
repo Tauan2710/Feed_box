@@ -47,7 +47,7 @@
 
             <div class="w-20 md:w-32 flex justify-end">
                 {% if request.path == '/enviar-feedback/' %}
-                <a href="http://127.0.0.1:8000/login/" class="text-xs font-bold text-gray-600 hover:text-blue-600 border border-gray-200 px-4 py-2 rounded-lg hover:bg-white transition-all uppercase tracking-widest">
+                <a href="{% url 'login' %}" class="text-xs font-bold text-gray-600 hover:text-blue-600 border border-gray-200 px-4 py-2 rounded-lg hover:bg-white transition-all uppercase tracking-widest">
                     Login
                 </a>
                 {% endif %}
