@@ -1,0 +1,2844 @@
+[
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "accounts",
+    "model": "perfil"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "feedbacks",
+    "model": "feedback"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "feedbacks",
+    "model": "resposta"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "setores",
+    "model": "setor"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "clima",
+    "model": "pesquisaclima"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "clima",
+    "model": "respostaclima"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "clima",
+    "model": "pergunta"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "admin",
+    "model": "logentry"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "auth",
+    "model": "permission"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "auth",
+    "model": "group"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "auth",
+    "model": "user"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "contenttypes",
+    "model": "contenttype"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "sessions",
+    "model": "session"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "feedbacks",
+    "model": "comunicado"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "clima",
+    "model": "respostapergunta"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "32lb3zib2lpijaxqzl656u29cfm0xbks",
+  "fields": {
+    "session_data": ".eJxVjDsOwjAQBe_iGln-rLGXkp4zWOsfDiBbipMKcXcSKQW0M_Pem3lal-rXkWc_JXZhkp1-WaD4zG0X6UHt3nnsbZmnwPeEH3bwW0_5dT3av4NKo25rS0DCUUEpTJIGzyVHg0GFYjeiMQFYcCZaBI3OFlCYNAkpnQRHSrDPF8jCNo8:1wG3J5:RZqav0KCYHcgmmL2CG3dQwAtqXV6ZqBr2F7sFUzQ_ao",
+    "expire_date": "2026-05-07T23:18:03.822Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "fmqnbgkpmno6mqa0vsnpo6iuz6lh5bhk",
+  "fields": {
+    "session_data": ".eJxVjMEOwiAQRP-FsyFAAcGj934D2V1WqRqalPZk_Hdp0oOeJpn3Zt4iwbaWtDVe0pTFRWhx-u0Q6Ml1B_kB9T5Lmuu6TCh3RR60yXHO_Loe7t9BgVb6OpqAaM2tp2IghZZdhMw6hAhshjx4Ju08kCfVFT6zRUcuBu-1sl58vu8IN9s:1w00HV:P7meY6IWgZoKIy78_I8zbjzfIy_6sGhKiuyTXU1hgKw",
+    "expire_date": "2026-03-24T16:50:05.800Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "q7l4m0h735tcsy5ajjr8kimtnezden0a",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2pCCxTIu3fcMZJgZpGogKe3KeHdD0oVu_3vvv1XAfcthb7KGhdVVGXX63SLSU0oH_MByr5pq2dYl6q7ogzY9V5bX7XD_DjK23GtJJk0jk5HkkjuPcnF2YGSKRjyD4yEm65hk8gSWk6BEA4jCAuBBfb4p_Dn4:1w83bj:vmayp5tDHPKKDT1M4p6XOMXFdMo_f6q6-QIc_bEjpTQ",
+    "expire_date": "2026-04-15T22:00:15.639Z"
+  }
+},
+{
+  "model": "feedbacks.feedback",
+  "pk": 1,
+  "fields": {
+    "setor": 2,
+    "mensagem": "atualizaçao 01",
+    "data_criacao": "2026-03-02T19:21:50.499Z",
+    "lido": false,
+    "curtidas": 1,
+    "categoria": "SUGE",
+    "nota_enps": null,
+    "sentimento": "Neutro",
+    "is_sensivel": false,
+    "protocolo": null
+  }
+},
+{
+  "model": "feedbacks.feedback",
+  "pk": 2,
+  "fields": {
+    "setor": 2,
+    "mensagem": "at 02",
+    "data_criacao": "2026-03-02T19:26:34.468Z",
+    "lido": false,
+    "curtidas": 0,
+    "categoria": "SUGE",
+    "nota_enps": null,
+    "sentimento": "Neutro",
+    "is_sensivel": false,
+    "protocolo": null
+  }
+},
+{
+  "model": "feedbacks.feedback",
+  "pk": 3,
+  "fields": {
+    "setor": 2,
+    "mensagem": "at 03",
+    "data_criacao": "2026-03-02T19:26:45.628Z",
+    "lido": false,
+    "curtidas": 0,
+    "categoria": "SUGE",
+    "nota_enps": null,
+    "sentimento": "Neutro",
+    "is_sensivel": false,
+    "protocolo": null
+  }
+},
+{
+  "model": "feedbacks.feedback",
+  "pk": 4,
+  "fields": {
+    "setor": 4,
+    "mensagem": "nota 10 (Promotor)",
+    "data_criacao": "2026-03-02T19:27:59.677Z",
+    "lido": false,
+    "curtidas": 0,
+    "categoria": "SUGE",
+    "nota_enps": null,
+    "sentimento": "Neutro",
+    "is_sensivel": false,
+    "protocolo": null
+  }
+},
+{
+  "model": "feedbacks.feedback",
+  "pk": 5,
+  "fields": {
+    "setor": 4,
+    "mensagem": "Nota 10 (Promotor)",
+    "data_criacao": "2026-03-02T19:28:12.772Z",
+    "lido": false,
+    "curtidas": 0,
+    "categoria": "SUGE",
+    "nota_enps": null,
+    "sentimento": "Neutro",
+    "is_sensivel": false,
+    "protocolo": null
+  }
+},
+{
+  "model": "feedbacks.feedback",
+  "pk": 6,
+  "fields": {
+    "setor": 4,
+    "mensagem": "Nota 5 (Detrator)",
+    "data_criacao": "2026-03-02T19:28:23.843Z",
+    "lido": false,
+    "curtidas": 0,
+    "categoria": "SUGE",
+    "nota_enps": null,
+    "sentimento": "Neutro",
+    "is_sensivel": false,
+    "protocolo": null
+  }
+},
+{
+  "model": "feedbacks.feedback",
+  "pk": 7,
+  "fields": {
+    "setor": 3,
+    "mensagem": "melhorar um pouco ",
+    "data_criacao": "2026-03-02T19:36:12.356Z",
+    "lido": true,
+    "curtidas": 0,
+    "categoria": "ENPS",
+    "nota_enps": 5,
+    "sentimento": "Neutro",
+    "is_sensivel": false,
+    "protocolo": null
+  }
+},
+{
+  "model": "feedbacks.feedback",
+  "pk": 8,
+  "fields": {
+    "setor": 3,
+    "mensagem": "ta dificil ",
+    "data_criacao": "2026-03-02T19:36:24.341Z",
+    "lido": false,
+    "curtidas": 0,
+    "categoria": "RECL",
+    "nota_enps": 9,
+    "sentimento": "Negativo",
+    "is_sensivel": false,
+    "protocolo": null
+  }
+},
+{
+  "model": "feedbacks.feedback",
+  "pk": 9,
+  "fields": {
+    "setor": 3,
+    "mensagem": "agilidade ",
+    "data_criacao": "2026-03-02T19:36:38.028Z",
+    "lido": false,
+    "curtidas": 0,
+    "categoria": "SUGE",
+    "nota_enps": 9,
+    "sentimento": "Neutro",
+    "is_sensivel": false,
+    "protocolo": null
+  }
+},
+{
+  "model": "feedbacks.feedback",
+  "pk": 10,
+  "fields": {
+    "setor": 3,
+    "mensagem": "ta dificil trabalhar nesse setor ",
+    "data_criacao": "2026-03-02T19:36:54.380Z",
+    "lido": false,
+    "curtidas": 0,
+    "categoria": "ELOG",
+    "nota_enps": 1,
+    "sentimento": "Negativo",
+    "is_sensivel": false,
+    "protocolo": null
+  }
+},
+{
+  "model": "feedbacks.feedback",
+  "pk": 11,
+  "fields": {
+    "setor": 2,
+    "mensagem": "bom",
+    "data_criacao": "2026-03-02T19:45:39.144Z",
+    "lido": false,
+    "curtidas": 0,
+    "categoria": "ELOG",
+    "nota_enps": 9,
+    "sentimento": "Positivo",
+    "is_sensivel": false,
+    "protocolo": null
+  }
+},
+{
+  "model": "feedbacks.feedback",
+  "pk": 12,
+  "fields": {
+    "setor": 2,
+    "mensagem": "otimo",
+    "data_criacao": "2026-03-02T19:45:50.861Z",
+    "lido": false,
+    "curtidas": 0,
+    "categoria": "ELOG",
+    "nota_enps": 10,
+    "sentimento": "Positivo",
+    "is_sensivel": false,
+    "protocolo": null
+  }
+},
+{
+  "model": "feedbacks.feedback",
+  "pk": 13,
+  "fields": {
+    "setor": 2,
+    "mensagem": "ficou ruim ",
+    "data_criacao": "2026-03-02T19:46:02.364Z",
+    "lido": false,
+    "curtidas": 0,
+    "categoria": "ELOG",
+    "nota_enps": 1,
+    "sentimento": "Negativo",
+    "is_sensivel": false,
+    "protocolo": null
+  }
+},
+{
+  "model": "feedbacks.feedback",
+  "pk": 14,
+  "fields": {
+    "setor": 4,
+    "mensagem": "ruim",
+    "data_criacao": "2026-03-02T19:47:22.500Z",
+    "lido": false,
+    "curtidas": 0,
+    "categoria": "RECL",
+    "nota_enps": 1,
+    "sentimento": "Negativo",
+    "is_sensivel": false,
+    "protocolo": null
+  }
+},
+{
+  "model": "feedbacks.feedback",
+  "pk": 15,
+  "fields": {
+    "setor": 1,
+    "mensagem": "asdasd",
+    "data_criacao": "2026-03-02T19:47:43.943Z",
+    "lido": false,
+    "curtidas": 0,
+    "categoria": "ELOG",
+    "nota_enps": 4,
+    "sentimento": "Neutro",
+    "is_sensivel": false,
+    "protocolo": null
+  }
+},
+{
+  "model": "feedbacks.feedback",
+  "pk": 16,
+  "fields": {
+    "setor": 2,
+    "mensagem": "oba",
+    "data_criacao": "2026-03-02T19:48:04.239Z",
+    "lido": false,
+    "curtidas": 0,
+    "categoria": "ELOG",
+    "nota_enps": 7,
+    "sentimento": "Neutro",
+    "is_sensivel": false,
+    "protocolo": null
+  }
+},
+{
+  "model": "feedbacks.feedback",
+  "pk": 17,
+  "fields": {
+    "setor": 1,
+    "mensagem": "dasdsad",
+    "data_criacao": "2026-03-02T19:48:19.106Z",
+    "lido": false,
+    "curtidas": 0,
+    "categoria": "ELOG",
+    "nota_enps": 8,
+    "sentimento": "Neutro",
+    "is_sensivel": false,
+    "protocolo": null
+  }
+},
+{
+  "model": "feedbacks.feedback",
+  "pk": 18,
+  "fields": {
+    "setor": 2,
+    "mensagem": "asdasdasd",
+    "data_criacao": "2026-03-02T19:48:27.965Z",
+    "lido": false,
+    "curtidas": 0,
+    "categoria": "ENPS",
+    "nota_enps": 8,
+    "sentimento": "Neutro",
+    "is_sensivel": false,
+    "protocolo": null
+  }
+},
+{
+  "model": "feedbacks.feedback",
+  "pk": 19,
+  "fields": {
+    "setor": 1,
+    "mensagem": "gerente ruim",
+    "data_criacao": "2026-03-02T22:03:06.649Z",
+    "lido": true,
+    "curtidas": 0,
+    "categoria": "RECL",
+    "nota_enps": 6,
+    "sentimento": "Negativo",
+    "is_sensivel": false,
+    "protocolo": null
+  }
+},
+{
+  "model": "feedbacks.feedback",
+  "pk": 20,
+  "fields": {
+    "setor": 1,
+    "mensagem": "salario esta ruim ",
+    "data_criacao": "2026-03-02T22:16:30.484Z",
+    "lido": false,
+    "curtidas": 0,
+    "categoria": "RECL",
+    "nota_enps": 3,
+    "sentimento": "Negativo",
+    "is_sensivel": false,
+    "protocolo": null
+  }
+},
+{
+  "model": "feedbacks.feedback",
+  "pk": 21,
+  "fields": {
+    "setor": 1,
+    "mensagem": "falta vagas ",
+    "data_criacao": "2026-03-02T22:16:41.970Z",
+    "lido": false,
+    "curtidas": 0,
+    "categoria": "RECL",
+    "nota_enps": 3,
+    "sentimento": "Neutro",
+    "is_sensivel": false,
+    "protocolo": null
+  }
+},
+{
+  "model": "feedbacks.feedback",
+  "pk": 22,
+  "fields": {
+    "setor": 1,
+    "mensagem": "muito bom ",
+    "data_criacao": "2026-03-02T22:18:30.238Z",
+    "lido": false,
+    "curtidas": 0,
+    "categoria": "RECL",
+    "nota_enps": 9,
+    "sentimento": "Positivo",
+    "is_sensivel": false,
+    "protocolo": null
+  }
+},
+{
+  "model": "feedbacks.feedback",
+  "pk": 23,
+  "fields": {
+    "setor": 1,
+    "mensagem": "O ar condicionado do setor de RH está quebrado e o calor está insuportável, péssima condição de trabalho.\"",
+    "data_criacao": "2026-03-02T22:19:15.752Z",
+    "lido": false,
+    "curtidas": 0,
+    "categoria": "RECL",
+    "nota_enps": 1,
+    "sentimento": "Negativo",
+    "is_sensivel": false,
+    "protocolo": null
+  }
+},
+{
+  "model": "feedbacks.feedback",
+  "pk": 24,
+  "fields": {
+    "setor": 1,
+    "mensagem": "Gostaria de parabenizar a liderança pelo novo café, a equipe está muito motivada!\"",
+    "data_criacao": "2026-03-02T22:19:40.973Z",
+    "lido": false,
+    "curtidas": 0,
+    "categoria": "ELOG",
+    "nota_enps": 10,
+    "sentimento": "Neutro",
+    "is_sensivel": false,
+    "protocolo": null
+  }
+},
+{
+  "model": "feedbacks.feedback",
+  "pk": 25,
+  "fields": {
+    "setor": 1,
+    "mensagem": "O ar condicionado do setor de RH está quebrado e o calor está insuportável, péssima condição de trabalho.\"",
+    "data_criacao": "2026-03-02T22:19:56.881Z",
+    "lido": false,
+    "curtidas": 0,
+    "categoria": "RECL",
+    "nota_enps": 1,
+    "sentimento": "Negativo",
+    "is_sensivel": false,
+    "protocolo": null
+  }
+},
+{
+  "model": "feedbacks.feedback",
+  "pk": 26,
+  "fields": {
+    "setor": 1,
+    "mensagem": "O ar condicionado do setor de RH está quebrado e o calor está insuportável, péssima condição de trabalho.\"",
+    "data_criacao": "2026-03-02T22:21:33.949Z",
+    "lido": false,
+    "curtidas": 0,
+    "categoria": "RECL",
+    "nota_enps": 1,
+    "sentimento": "Negativo",
+    "is_sensivel": false,
+    "protocolo": null
+  }
+},
+{
+  "model": "feedbacks.feedback",
+  "pk": 27,
+  "fields": {
+    "setor": 1,
+    "mensagem": "Gostaria de parabenizar a liderança pelo novo café, a equipe está muito motivada!\"",
+    "data_criacao": "2026-03-02T22:21:49.936Z",
+    "lido": false,
+    "curtidas": 0,
+    "categoria": "ELOG",
+    "nota_enps": 10,
+    "sentimento": "Neutro",
+    "is_sensivel": false,
+    "protocolo": null
+  }
+},
+{
+  "model": "feedbacks.feedback",
+  "pk": 28,
+  "fields": {
+    "setor": 2,
+    "mensagem": "Este sistema está péssimo, cheio de erros.\"",
+    "data_criacao": "2026-03-02T22:26:50.730Z",
+    "lido": false,
+    "curtidas": 0,
+    "categoria": "RECL",
+    "nota_enps": 1,
+    "sentimento": "Negativo",
+    "is_sensivel": false,
+    "protocolo": null
+  }
+},
+{
+  "model": "feedbacks.feedback",
+  "pk": 29,
+  "fields": {
+    "setor": 2,
+    "mensagem": "O atendimento foi excelente, estou muito feliz.\"",
+    "data_criacao": "2026-03-02T22:27:05.050Z",
+    "lido": false,
+    "curtidas": 0,
+    "categoria": "ELOG",
+    "nota_enps": 8,
+    "sentimento": "Positivo",
+    "is_sensivel": false,
+    "protocolo": null
+  }
+},
+{
+  "model": "feedbacks.feedback",
+  "pk": 30,
+  "fields": {
+    "setor": 2,
+    "mensagem": "O atendimento foi excelente, estou muito feliz.\"",
+    "data_criacao": "2026-03-02T22:27:33.161Z",
+    "lido": false,
+    "curtidas": 0,
+    "categoria": "RECL",
+    "nota_enps": 1,
+    "sentimento": "Positivo",
+    "is_sensivel": false,
+    "protocolo": null
+  }
+},
+{
+  "model": "feedbacks.feedback",
+  "pk": 31,
+  "fields": {
+    "setor": 2,
+    "mensagem": "muito ruim ",
+    "data_criacao": "2026-03-03T16:00:53.775Z",
+    "lido": false,
+    "curtidas": 0,
+    "categoria": "RECL",
+    "nota_enps": 2,
+    "sentimento": "Negativo",
+    "is_sensivel": false,
+    "protocolo": null
+  }
+},
+{
+  "model": "feedbacks.feedback",
+  "pk": 32,
+  "fields": {
+    "setor": 1,
+    "mensagem": "esta ficando muito bom o sistema ",
+    "data_criacao": "2026-03-03T16:33:14.053Z",
+    "lido": false,
+    "curtidas": 0,
+    "categoria": "ELOG",
+    "nota_enps": 6,
+    "sentimento": "Positivo",
+    "is_sensivel": false,
+    "protocolo": null
+  }
+},
+{
+  "model": "feedbacks.feedback",
+  "pk": 33,
+  "fields": {
+    "setor": 2,
+    "mensagem": "sofri preconceito ",
+    "data_criacao": "2026-03-03T16:46:22.077Z",
+    "lido": false,
+    "curtidas": 0,
+    "categoria": "DENU",
+    "nota_enps": 0,
+    "sentimento": "Neutro",
+    "is_sensivel": true,
+    "protocolo": "FB-0CB5"
+  }
+},
+{
+  "model": "feedbacks.feedback",
+  "pk": 34,
+  "fields": {
+    "setor": 2,
+    "mensagem": "sofri preconceito ",
+    "data_criacao": "2026-03-03T16:47:07.173Z",
+    "lido": false,
+    "curtidas": 0,
+    "categoria": "DENU",
+    "nota_enps": 0,
+    "sentimento": "Neutro",
+    "is_sensivel": true,
+    "protocolo": "FB-2300"
+  }
+},
+{
+  "model": "feedbacks.feedback",
+  "pk": 35,
+  "fields": {
+    "setor": 1,
+    "mensagem": "sofri agressão ",
+    "data_criacao": "2026-03-03T16:59:16.521Z",
+    "lido": true,
+    "curtidas": 0,
+    "categoria": "DENU",
+    "nota_enps": 1,
+    "sentimento": "Neutro",
+    "is_sensivel": true,
+    "protocolo": "FB-172A"
+  }
+},
+{
+  "model": "feedbacks.feedback",
+  "pk": 36,
+  "fields": {
+    "setor": 1,
+    "mensagem": "estou gostando bastante da empresa ",
+    "data_criacao": "2026-03-04T16:55:57.739Z",
+    "lido": false,
+    "curtidas": 0,
+    "categoria": "ELOG",
+    "nota_enps": 9,
+    "sentimento": "Neutro",
+    "is_sensivel": false,
+    "protocolo": null
+  }
+},
+{
+  "model": "feedbacks.feedback",
+  "pk": 37,
+  "fields": {
+    "setor": 2,
+    "mensagem": "sofri agressão ",
+    "data_criacao": "2026-03-04T16:56:26.455Z",
+    "lido": false,
+    "curtidas": 0,
+    "categoria": "DENU",
+    "nota_enps": 2,
+    "sentimento": "Neutro",
+    "is_sensivel": true,
+    "protocolo": "FB-816B"
+  }
+},
+{
+  "model": "feedbacks.feedback",
+  "pk": 38,
+  "fields": {
+    "setor": 1,
+    "mensagem": "agressao",
+    "data_criacao": "2026-03-04T23:09:01.473Z",
+    "lido": true,
+    "curtidas": 0,
+    "categoria": "DENU",
+    "nota_enps": 1,
+    "sentimento": "Neutro",
+    "is_sensivel": true,
+    "protocolo": "FB-1C5B"
+  }
+},
+{
+  "model": "feedbacks.feedback",
+  "pk": 39,
+  "fields": {
+    "setor": 1,
+    "mensagem": "ruim ",
+    "data_criacao": "2026-03-05T13:47:59.235Z",
+    "lido": false,
+    "curtidas": 0,
+    "categoria": "DENU",
+    "nota_enps": 2,
+    "sentimento": "Negativo",
+    "is_sensivel": true,
+    "protocolo": "FB-5BEE"
+  }
+},
+{
+  "model": "feedbacks.feedback",
+  "pk": 40,
+  "fields": {
+    "setor": 4,
+    "mensagem": "esta muito bom as vendas ",
+    "data_criacao": "2026-03-10T16:34:25.005Z",
+    "lido": false,
+    "curtidas": 0,
+    "categoria": "ELOG",
+    "nota_enps": 6,
+    "sentimento": "Positivo",
+    "is_sensivel": false,
+    "protocolo": null
+  }
+},
+{
+  "model": "feedbacks.feedback",
+  "pk": 41,
+  "fields": {
+    "setor": 2,
+    "mensagem": "sofri preconceito ",
+    "data_criacao": "2026-03-10T16:49:49.543Z",
+    "lido": false,
+    "curtidas": 0,
+    "categoria": "DENU",
+    "nota_enps": 2,
+    "sentimento": "Neutro",
+    "is_sensivel": true,
+    "protocolo": "FB-8E49"
+  }
+},
+{
+  "model": "feedbacks.feedback",
+  "pk": 42,
+  "fields": {
+    "setor": 2,
+    "mensagem": "fui agredido ",
+    "data_criacao": "2026-03-10T16:55:30.542Z",
+    "lido": false,
+    "curtidas": 0,
+    "categoria": "DENU",
+    "nota_enps": 2,
+    "sentimento": "Neutro",
+    "is_sensivel": true,
+    "protocolo": "FB-76EB"
+  }
+},
+{
+  "model": "feedbacks.feedback",
+  "pk": 43,
+  "fields": {
+    "setor": 2,
+    "mensagem": "otimo trabalho ",
+    "data_criacao": "2026-03-16T22:20:58.732Z",
+    "lido": false,
+    "curtidas": 0,
+    "categoria": "ELOG",
+    "nota_enps": 4,
+    "sentimento": "Positivo",
+    "is_sensivel": false,
+    "protocolo": null
+  }
+},
+{
+  "model": "feedbacks.feedback",
+  "pk": 44,
+  "fields": {
+    "setor": 2,
+    "mensagem": "sofri agressão ",
+    "data_criacao": "2026-03-16T22:21:23.376Z",
+    "lido": true,
+    "curtidas": 0,
+    "categoria": "DENU",
+    "nota_enps": 3,
+    "sentimento": "Neutro",
+    "is_sensivel": true,
+    "protocolo": "FB-F52F"
+  }
+},
+{
+  "model": "feedbacks.feedback",
+  "pk": 45,
+  "fields": {
+    "setor": 1,
+    "mensagem": "agressao",
+    "data_criacao": "2026-03-18T21:39:42.343Z",
+    "lido": false,
+    "curtidas": 0,
+    "categoria": "DENU",
+    "nota_enps": 3,
+    "sentimento": "Neutro",
+    "is_sensivel": true,
+    "protocolo": "FB-FB31"
+  }
+},
+{
+  "model": "feedbacks.feedback",
+  "pk": 46,
+  "fields": {
+    "setor": 2,
+    "mensagem": "deu uma parada no projeto vamos dar continuidade ",
+    "data_criacao": "2026-03-30T21:57:50.309Z",
+    "lido": false,
+    "curtidas": 0,
+    "categoria": "RECL",
+    "nota_enps": 2,
+    "sentimento": "Neutro",
+    "is_sensivel": false,
+    "protocolo": null
+  }
+},
+{
+  "model": "feedbacks.feedback",
+  "pk": 47,
+  "fields": {
+    "setor": 2,
+    "mensagem": "o projeto esta ótimo ",
+    "data_criacao": "2026-03-30T21:58:16.366Z",
+    "lido": false,
+    "curtidas": 0,
+    "categoria": "ELOG",
+    "nota_enps": 7,
+    "sentimento": "Positivo",
+    "is_sensivel": false,
+    "protocolo": null
+  }
+},
+{
+  "model": "feedbacks.feedback",
+  "pk": 48,
+  "fields": {
+    "setor": 3,
+    "mensagem": "otimo",
+    "data_criacao": "2026-03-30T22:30:47.393Z",
+    "lido": false,
+    "curtidas": 0,
+    "categoria": "ELOG",
+    "nota_enps": 3,
+    "sentimento": "Positivo",
+    "is_sensivel": false,
+    "protocolo": null
+  }
+},
+{
+  "model": "feedbacks.feedback",
+  "pk": 49,
+  "fields": {
+    "setor": 2,
+    "mensagem": "otimo",
+    "data_criacao": "2026-03-30T22:30:56.247Z",
+    "lido": false,
+    "curtidas": 0,
+    "categoria": "RECL",
+    "nota_enps": 3,
+    "sentimento": "Positivo",
+    "is_sensivel": false,
+    "protocolo": null
+  }
+},
+{
+  "model": "feedbacks.feedback",
+  "pk": 50,
+  "fields": {
+    "setor": 1,
+    "mensagem": "otimo",
+    "data_criacao": "2026-03-30T22:31:03.970Z",
+    "lido": false,
+    "curtidas": 0,
+    "categoria": "SUGE",
+    "nota_enps": 3,
+    "sentimento": "Positivo",
+    "is_sensivel": false,
+    "protocolo": null
+  }
+},
+{
+  "model": "feedbacks.feedback",
+  "pk": 51,
+  "fields": {
+    "setor": 3,
+    "mensagem": "otimo",
+    "data_criacao": "2026-03-30T22:31:17.028Z",
+    "lido": false,
+    "curtidas": 0,
+    "categoria": "ELOG",
+    "nota_enps": 9,
+    "sentimento": "Positivo",
+    "is_sensivel": false,
+    "protocolo": null
+  }
+},
+{
+  "model": "feedbacks.feedback",
+  "pk": 52,
+  "fields": {
+    "setor": 1,
+    "mensagem": "otimo",
+    "data_criacao": "2026-03-30T22:31:24.963Z",
+    "lido": false,
+    "curtidas": 0,
+    "categoria": "ELOG",
+    "nota_enps": 10,
+    "sentimento": "Positivo",
+    "is_sensivel": false,
+    "protocolo": null
+  }
+},
+{
+  "model": "feedbacks.feedback",
+  "pk": 53,
+  "fields": {
+    "setor": 3,
+    "mensagem": "otimo",
+    "data_criacao": "2026-03-30T22:31:34.236Z",
+    "lido": false,
+    "curtidas": 0,
+    "categoria": "ELOG",
+    "nota_enps": 9,
+    "sentimento": "Positivo",
+    "is_sensivel": false,
+    "protocolo": null
+  }
+},
+{
+  "model": "feedbacks.feedback",
+  "pk": 54,
+  "fields": {
+    "setor": 2,
+    "mensagem": "otimo",
+    "data_criacao": "2026-03-30T22:31:55.444Z",
+    "lido": false,
+    "curtidas": 0,
+    "categoria": "ELOG",
+    "nota_enps": 10,
+    "sentimento": "Positivo",
+    "is_sensivel": false,
+    "protocolo": null
+  }
+},
+{
+  "model": "feedbacks.feedback",
+  "pk": 55,
+  "fields": {
+    "setor": 2,
+    "mensagem": "otimo",
+    "data_criacao": "2026-03-30T22:32:03.581Z",
+    "lido": false,
+    "curtidas": 0,
+    "categoria": "ELOG",
+    "nota_enps": 9,
+    "sentimento": "Positivo",
+    "is_sensivel": false,
+    "protocolo": null
+  }
+},
+{
+  "model": "feedbacks.feedback",
+  "pk": 56,
+  "fields": {
+    "setor": 4,
+    "mensagem": "otimo",
+    "data_criacao": "2026-03-30T22:32:14.053Z",
+    "lido": false,
+    "curtidas": 0,
+    "categoria": "RECL",
+    "nota_enps": 10,
+    "sentimento": "Positivo",
+    "is_sensivel": false,
+    "protocolo": null
+  }
+},
+{
+  "model": "feedbacks.feedback",
+  "pk": 57,
+  "fields": {
+    "setor": 3,
+    "mensagem": "otimo",
+    "data_criacao": "2026-03-30T22:32:27.150Z",
+    "lido": false,
+    "curtidas": 0,
+    "categoria": "ELOG",
+    "nota_enps": 10,
+    "sentimento": "Positivo",
+    "is_sensivel": false,
+    "protocolo": null
+  }
+},
+{
+  "model": "feedbacks.feedback",
+  "pk": 58,
+  "fields": {
+    "setor": 1,
+    "mensagem": "otimo",
+    "data_criacao": "2026-03-30T22:32:34.117Z",
+    "lido": false,
+    "curtidas": 0,
+    "categoria": "RECL",
+    "nota_enps": 8,
+    "sentimento": "Positivo",
+    "is_sensivel": false,
+    "protocolo": null
+  }
+},
+{
+  "model": "feedbacks.feedback",
+  "pk": 59,
+  "fields": {
+    "setor": 2,
+    "mensagem": "otimo",
+    "data_criacao": "2026-03-30T22:32:41.529Z",
+    "lido": false,
+    "curtidas": 0,
+    "categoria": "RECL",
+    "nota_enps": 8,
+    "sentimento": "Positivo",
+    "is_sensivel": false,
+    "protocolo": null
+  }
+},
+{
+  "model": "feedbacks.feedback",
+  "pk": 60,
+  "fields": {
+    "setor": 2,
+    "mensagem": "otimo",
+    "data_criacao": "2026-03-30T22:32:50.716Z",
+    "lido": false,
+    "curtidas": 0,
+    "categoria": "ELOG",
+    "nota_enps": 9,
+    "sentimento": "Positivo",
+    "is_sensivel": false,
+    "protocolo": null
+  }
+},
+{
+  "model": "feedbacks.feedback",
+  "pk": 61,
+  "fields": {
+    "setor": 1,
+    "mensagem": "otimo",
+    "data_criacao": "2026-03-30T22:32:57.594Z",
+    "lido": false,
+    "curtidas": 0,
+    "categoria": "ELOG",
+    "nota_enps": 9,
+    "sentimento": "Positivo",
+    "is_sensivel": false,
+    "protocolo": null
+  }
+},
+{
+  "model": "feedbacks.feedback",
+  "pk": 62,
+  "fields": {
+    "setor": 2,
+    "mensagem": "otimo",
+    "data_criacao": "2026-03-30T22:33:05.039Z",
+    "lido": false,
+    "curtidas": 0,
+    "categoria": "ELOG",
+    "nota_enps": 9,
+    "sentimento": "Positivo",
+    "is_sensivel": false,
+    "protocolo": null
+  }
+},
+{
+  "model": "feedbacks.feedback",
+  "pk": 63,
+  "fields": {
+    "setor": 2,
+    "mensagem": "otimo",
+    "data_criacao": "2026-03-30T22:33:11.920Z",
+    "lido": false,
+    "curtidas": 0,
+    "categoria": "ELOG",
+    "nota_enps": 9,
+    "sentimento": "Positivo",
+    "is_sensivel": false,
+    "protocolo": null
+  }
+},
+{
+  "model": "feedbacks.feedback",
+  "pk": 64,
+  "fields": {
+    "setor": 3,
+    "mensagem": "otimo",
+    "data_criacao": "2026-03-30T22:33:19.972Z",
+    "lido": false,
+    "curtidas": 0,
+    "categoria": "ELOG",
+    "nota_enps": 9,
+    "sentimento": "Positivo",
+    "is_sensivel": false,
+    "protocolo": null
+  }
+},
+{
+  "model": "feedbacks.feedback",
+  "pk": 65,
+  "fields": {
+    "setor": 2,
+    "mensagem": "otimo",
+    "data_criacao": "2026-03-30T22:33:28.320Z",
+    "lido": false,
+    "curtidas": 0,
+    "categoria": "ELOG",
+    "nota_enps": 9,
+    "sentimento": "Positivo",
+    "is_sensivel": false,
+    "protocolo": null
+  }
+},
+{
+  "model": "feedbacks.feedback",
+  "pk": 66,
+  "fields": {
+    "setor": 2,
+    "mensagem": "otimo",
+    "data_criacao": "2026-03-30T22:33:43.318Z",
+    "lido": false,
+    "curtidas": 0,
+    "categoria": "ELOG",
+    "nota_enps": 10,
+    "sentimento": "Positivo",
+    "is_sensivel": false,
+    "protocolo": null
+  }
+},
+{
+  "model": "feedbacks.feedback",
+  "pk": 67,
+  "fields": {
+    "setor": 2,
+    "mensagem": "Public Class ProdutosDAO implements iDAO(of ProdutosTO)",
+    "data_criacao": "2026-03-30T22:35:46.365Z",
+    "lido": false,
+    "curtidas": 0,
+    "categoria": "ELOG",
+    "nota_enps": 10,
+    "sentimento": "Neutro",
+    "is_sensivel": false,
+    "protocolo": null
+  }
+},
+{
+  "model": "feedbacks.feedback",
+  "pk": 68,
+  "fields": {
+    "setor": 1,
+    "mensagem": "esta otimo ficou muito bom ",
+    "data_criacao": "2026-03-30T22:36:09.898Z",
+    "lido": true,
+    "curtidas": 0,
+    "categoria": "ELOG",
+    "nota_enps": 10,
+    "sentimento": "Positivo",
+    "is_sensivel": false,
+    "protocolo": null
+  }
+},
+{
+  "model": "feedbacks.feedback",
+  "pk": 69,
+  "fields": {
+    "setor": 1,
+    "mensagem": "esta otimo ficou muito bom ",
+    "data_criacao": "2026-03-30T22:36:17.176Z",
+    "lido": true,
+    "curtidas": 0,
+    "categoria": "ELOG",
+    "nota_enps": 10,
+    "sentimento": "Positivo",
+    "is_sensivel": false,
+    "protocolo": null
+  }
+},
+{
+  "model": "feedbacks.feedback",
+  "pk": 70,
+  "fields": {
+    "setor": 2,
+    "mensagem": "esta otimo ficou muito bom ",
+    "data_criacao": "2026-03-30T22:36:24.357Z",
+    "lido": true,
+    "curtidas": 0,
+    "categoria": "ELOG",
+    "nota_enps": 10,
+    "sentimento": "Positivo",
+    "is_sensivel": false,
+    "protocolo": null
+  }
+},
+{
+  "model": "feedbacks.feedback",
+  "pk": 71,
+  "fields": {
+    "setor": 3,
+    "mensagem": "esta otimo ficou muito bom ",
+    "data_criacao": "2026-03-30T22:36:35.874Z",
+    "lido": true,
+    "curtidas": 1,
+    "categoria": "ELOG",
+    "nota_enps": 10,
+    "sentimento": "Positivo",
+    "is_sensivel": false,
+    "protocolo": null
+  }
+},
+{
+  "model": "feedbacks.feedback",
+  "pk": 72,
+  "fields": {
+    "setor": 2,
+    "mensagem": "esta otimo ficou muito bom ",
+    "data_criacao": "2026-03-30T22:36:45.927Z",
+    "lido": true,
+    "curtidas": 0,
+    "categoria": "ELOG",
+    "nota_enps": 10,
+    "sentimento": "Positivo",
+    "is_sensivel": false,
+    "protocolo": null
+  }
+},
+{
+  "model": "feedbacks.feedback",
+  "pk": 73,
+  "fields": {
+    "setor": 1,
+    "mensagem": "esta otimo ficou muito bom ",
+    "data_criacao": "2026-03-30T22:36:52.699Z",
+    "lido": true,
+    "curtidas": 0,
+    "categoria": "ELOG",
+    "nota_enps": null,
+    "sentimento": "Positivo",
+    "is_sensivel": false,
+    "protocolo": null
+  }
+},
+{
+  "model": "feedbacks.feedback",
+  "pk": 74,
+  "fields": {
+    "setor": 3,
+    "mensagem": "esta otimo ficou muito bom ",
+    "data_criacao": "2026-03-30T22:37:00.021Z",
+    "lido": true,
+    "curtidas": 0,
+    "categoria": "ELOG",
+    "nota_enps": 9,
+    "sentimento": "Positivo",
+    "is_sensivel": false,
+    "protocolo": null
+  }
+},
+{
+  "model": "feedbacks.feedback",
+  "pk": 75,
+  "fields": {
+    "setor": 1,
+    "mensagem": "esta otimo ficou muito bom ",
+    "data_criacao": "2026-03-30T22:37:07.146Z",
+    "lido": true,
+    "curtidas": 0,
+    "categoria": "ELOG",
+    "nota_enps": 10,
+    "sentimento": "Positivo",
+    "is_sensivel": false,
+    "protocolo": null
+  }
+},
+{
+  "model": "feedbacks.feedback",
+  "pk": 76,
+  "fields": {
+    "setor": 3,
+    "mensagem": "esta otimo ficou muito bom ",
+    "data_criacao": "2026-03-30T22:37:15.808Z",
+    "lido": true,
+    "curtidas": 0,
+    "categoria": "ELOG",
+    "nota_enps": 10,
+    "sentimento": "Positivo",
+    "is_sensivel": false,
+    "protocolo": null
+  }
+},
+{
+  "model": "feedbacks.feedback",
+  "pk": 77,
+  "fields": {
+    "setor": 2,
+    "mensagem": "esta otimo ficou muito bom ",
+    "data_criacao": "2026-03-30T22:37:22.877Z",
+    "lido": true,
+    "curtidas": 0,
+    "categoria": "ELOG",
+    "nota_enps": 10,
+    "sentimento": "Positivo",
+    "is_sensivel": false,
+    "protocolo": null
+  }
+},
+{
+  "model": "feedbacks.feedback",
+  "pk": 78,
+  "fields": {
+    "setor": 2,
+    "mensagem": "esta otimo ficou muito bom ",
+    "data_criacao": "2026-03-30T22:37:30.083Z",
+    "lido": true,
+    "curtidas": 0,
+    "categoria": "ELOG",
+    "nota_enps": 10,
+    "sentimento": "Positivo",
+    "is_sensivel": false,
+    "protocolo": null
+  }
+},
+{
+  "model": "feedbacks.feedback",
+  "pk": 79,
+  "fields": {
+    "setor": 2,
+    "mensagem": "esta otimo ficou muito bom",
+    "data_criacao": "2026-03-30T23:22:33.421Z",
+    "lido": true,
+    "curtidas": 0,
+    "categoria": "ELOG",
+    "nota_enps": 10,
+    "sentimento": "Positivo",
+    "is_sensivel": false,
+    "protocolo": null
+  }
+},
+{
+  "model": "feedbacks.feedback",
+  "pk": 80,
+  "fields": {
+    "setor": 2,
+    "mensagem": "esta otimo ficou muito bom",
+    "data_criacao": "2026-03-30T23:22:42.463Z",
+    "lido": true,
+    "curtidas": 0,
+    "categoria": "ELOG",
+    "nota_enps": 10,
+    "sentimento": "Positivo",
+    "is_sensivel": false,
+    "protocolo": null
+  }
+},
+{
+  "model": "feedbacks.feedback",
+  "pk": 81,
+  "fields": {
+    "setor": 3,
+    "mensagem": "sdgsdfgdfg",
+    "data_criacao": "2026-03-31T22:21:56.567Z",
+    "lido": false,
+    "curtidas": 0,
+    "categoria": "DENU",
+    "nota_enps": 7,
+    "sentimento": "Neutro",
+    "is_sensivel": true,
+    "protocolo": "FB-D626"
+  }
+},
+{
+  "model": "feedbacks.feedback",
+  "pk": 82,
+  "fields": {
+    "setor": 4,
+    "mensagem": "muito bom ",
+    "data_criacao": "2026-03-31T23:20:38.773Z",
+    "lido": true,
+    "curtidas": 0,
+    "categoria": "SUGE",
+    "nota_enps": 10,
+    "sentimento": "Positivo",
+    "is_sensivel": false,
+    "protocolo": null
+  }
+},
+{
+  "model": "feedbacks.feedback",
+  "pk": 83,
+  "fields": {
+    "setor": 1,
+    "mensagem": "ta melhorando ",
+    "data_criacao": "2026-04-22T21:24:57.971Z",
+    "lido": true,
+    "curtidas": 0,
+    "categoria": "ELOG",
+    "nota_enps": 9,
+    "sentimento": "Neutro",
+    "is_sensivel": false,
+    "protocolo": null
+  }
+},
+{
+  "model": "feedbacks.resposta",
+  "pk": 1,
+  "fields": {
+    "feedback": 7,
+    "texto_resposta": "dfgdfg",
+    "data_resposta": "2026-03-02T19:49:51.935Z"
+  }
+},
+{
+  "model": "feedbacks.resposta",
+  "pk": 2,
+  "fields": {
+    "feedback": 19,
+    "texto_resposta": "vou demitir ele",
+    "data_resposta": "2026-03-02T22:04:19.781Z"
+  }
+},
+{
+  "model": "feedbacks.resposta",
+  "pk": 3,
+  "fields": {
+    "feedback": 35,
+    "texto_resposta": "vamos procurar os culpados e vamos responsabilizar",
+    "data_resposta": "2026-03-03T17:00:30.139Z"
+  }
+},
+{
+  "model": "feedbacks.resposta",
+  "pk": 4,
+  "fields": {
+    "feedback": 38,
+    "texto_resposta": "vamos resolver",
+    "data_resposta": "2026-03-04T23:09:33.929Z"
+  }
+},
+{
+  "model": "feedbacks.resposta",
+  "pk": 5,
+  "fields": {
+    "feedback": 44,
+    "texto_resposta": "vamos analisar o ocorrido",
+    "data_resposta": "2026-03-16T22:22:06.104Z"
+  }
+},
+{
+  "model": "feedbacks.resposta",
+  "pk": 6,
+  "fields": {
+    "feedback": 80,
+    "texto_resposta": "legal",
+    "data_resposta": "2026-03-30T23:34:34.124Z"
+  }
+},
+{
+  "model": "feedbacks.resposta",
+  "pk": 7,
+  "fields": {
+    "feedback": 79,
+    "texto_resposta": "legal",
+    "data_resposta": "2026-03-30T23:34:39.891Z"
+  }
+},
+{
+  "model": "feedbacks.resposta",
+  "pk": 8,
+  "fields": {
+    "feedback": 78,
+    "texto_resposta": "legal",
+    "data_resposta": "2026-03-30T23:34:45.593Z"
+  }
+},
+{
+  "model": "feedbacks.resposta",
+  "pk": 9,
+  "fields": {
+    "feedback": 77,
+    "texto_resposta": "legal",
+    "data_resposta": "2026-03-30T23:34:50.613Z"
+  }
+},
+{
+  "model": "feedbacks.resposta",
+  "pk": 10,
+  "fields": {
+    "feedback": 76,
+    "texto_resposta": "legal",
+    "data_resposta": "2026-03-30T23:34:56.777Z"
+  }
+},
+{
+  "model": "feedbacks.resposta",
+  "pk": 11,
+  "fields": {
+    "feedback": 75,
+    "texto_resposta": "legal",
+    "data_resposta": "2026-03-30T23:35:02.649Z"
+  }
+},
+{
+  "model": "feedbacks.resposta",
+  "pk": 12,
+  "fields": {
+    "feedback": 74,
+    "texto_resposta": "legal",
+    "data_resposta": "2026-03-30T23:35:11.978Z"
+  }
+},
+{
+  "model": "feedbacks.resposta",
+  "pk": 13,
+  "fields": {
+    "feedback": 73,
+    "texto_resposta": "legal",
+    "data_resposta": "2026-03-30T23:35:34.012Z"
+  }
+},
+{
+  "model": "feedbacks.resposta",
+  "pk": 14,
+  "fields": {
+    "feedback": 72,
+    "texto_resposta": "legal",
+    "data_resposta": "2026-03-30T23:35:39.312Z"
+  }
+},
+{
+  "model": "feedbacks.resposta",
+  "pk": 15,
+  "fields": {
+    "feedback": 71,
+    "texto_resposta": "legal",
+    "data_resposta": "2026-03-30T23:35:44.595Z"
+  }
+},
+{
+  "model": "feedbacks.resposta",
+  "pk": 16,
+  "fields": {
+    "feedback": 70,
+    "texto_resposta": "legal",
+    "data_resposta": "2026-03-30T23:35:49.746Z"
+  }
+},
+{
+  "model": "feedbacks.resposta",
+  "pk": 17,
+  "fields": {
+    "feedback": 69,
+    "texto_resposta": "legal",
+    "data_resposta": "2026-03-30T23:35:56.166Z"
+  }
+},
+{
+  "model": "feedbacks.resposta",
+  "pk": 18,
+  "fields": {
+    "feedback": 68,
+    "texto_resposta": "legal",
+    "data_resposta": "2026-03-30T23:36:02.531Z"
+  }
+},
+{
+  "model": "feedbacks.resposta",
+  "pk": 19,
+  "fields": {
+    "feedback": 82,
+    "texto_resposta": "que bom que esta gostando",
+    "data_resposta": "2026-03-31T23:21:01.353Z"
+  }
+},
+{
+  "model": "feedbacks.resposta",
+  "pk": 20,
+  "fields": {
+    "feedback": 83,
+    "texto_resposta": "que bom",
+    "data_resposta": "2026-04-22T21:25:23.710Z"
+  }
+},
+{
+  "model": "feedbacks.comunicado",
+  "pk": 2,
+  "fields": {
+    "titulo": "🎉 CONFRATERNIZAÇÃO DO MÊS!",
+    "conteudo": "Pessoal, nesta sexta-feira teremos nosso café da manhã especial para os aniversariantes do mês. Será às 09:00 na copa. Contamos com a presença de todos para esse momento de integração!",
+    "data_criacao": "2026-03-04T17:52:21.548Z",
+    "tipo": "AVIS",
+    "ativo": true
+  }
+},
+{
+  "model": "feedbacks.comunicado",
+  "pk": 3,
+  "fields": {
+    "titulo": "NOVO FLUXO DE REEMBOLSO",
+    "conteudo": "A partir de segunda-feira, todas as solicitações de reembolso devem ser feitas exclusivamente via sistema interno, anexando a nota fiscal digitalizada. Dúvidas, procurem o financeiro.",
+    "data_criacao": "2026-03-04T17:52:36.746Z",
+    "tipo": "AVIS",
+    "ativo": true
+  }
+},
+{
+  "model": "feedbacks.comunicado",
+  "pk": 4,
+  "fields": {
+    "titulo": "💙 PESQUISA DE CLIMA ATIVA",
+    "conteudo": "qua opinião é fundamental para nossa evolução. Se você ainda não respondeu à pesquisa de clima deste trimestre, acesse o link enviado no seu e-mail. Leva apenas 3 minutinhos!",
+    "data_criacao": "2026-03-04T17:52:52.213Z",
+    "tipo": "AVIS",
+    "ativo": true
+  }
+},
+{
+  "model": "feedbacks.comunicado",
+  "pk": 5,
+  "fields": {
+    "titulo": "🗓️ EXPEDIENTE - FERIADO",
+    "conteudo": "Relembramos que na próxima quarta-feira não haverá expediente devido ao feriado municipal. Retornaremos às atividades normais na quinta-feira às 08:00.",
+    "data_criacao": "2026-03-04T17:53:18.189Z",
+    "tipo": "AVIS",
+    "ativo": true
+  }
+},
+{
+  "model": "clima.pesquisaclima",
+  "pk": 9,
+  "fields": {
+    "titulo": "Pesquisa de Satisfação Geral (Mensal/Trimestral)",
+    "descricao": "",
+    "ativa": true,
+    "data_inicio": "2026-03-30T22:03:06.289Z"
+  }
+},
+{
+  "model": "clima.pesquisaclima",
+  "pk": 10,
+  "fields": {
+    "titulo": "Avaliação de Liderança e Suporte",
+    "descricao": "",
+    "ativa": true,
+    "data_inicio": "2026-03-30T22:04:25.596Z"
+  }
+},
+{
+  "model": "clima.pesquisaclima",
+  "pk": 11,
+  "fields": {
+    "titulo": "Ambiente e Ferramentas",
+    "descricao": "",
+    "ativa": true,
+    "data_inicio": "2026-03-30T22:07:33.000Z"
+  }
+},
+{
+  "model": "clima.pergunta",
+  "pk": 20,
+  "fields": {
+    "pesquisa": 9,
+    "texto": "Como avalias o teu bem-estar e motivação na empresa esta semana?",
+    "tipo": "NOTA",
+    "obrigatoria": true
+  }
+},
+{
+  "model": "clima.pergunta",
+  "pk": 21,
+  "fields": {
+    "pesquisa": 9,
+    "texto": "O que mais impactou o teu humor ou a tua produtividade nestes últimos dias?",
+    "tipo": "TEXTO",
+    "obrigatoria": true
+  }
+},
+{
+  "model": "clima.pergunta",
+  "pk": 22,
+  "fields": {
+    "pesquisa": 10,
+    "texto": "Quanto sentes que a tua liderança te apoia e dá orientações claras?",
+    "tipo": "NOTA",
+    "obrigatoria": true
+  }
+},
+{
+  "model": "clima.pergunta",
+  "pk": 23,
+  "fields": {
+    "pesquisa": 10,
+    "texto": "Se pudesses dar uma sugestão direta ao teu gestor para melhorar o trabalho da equipa, o que seria?",
+    "tipo": "TEXTO",
+    "obrigatoria": true
+  }
+},
+{
+  "model": "clima.pergunta",
+  "pk": 24,
+  "fields": {
+    "pesquisa": 11,
+    "texto": "Como avalia a qualidade das ferramentas e equipamentos que utiliza no dia a dia?",
+    "tipo": "NOTA",
+    "obrigatoria": true
+  }
+},
+{
+  "model": "clima.pergunta",
+  "pk": 25,
+  "fields": {
+    "pesquisa": 11,
+    "texto": "O ambiente físico (ou suporte ao remoto) permite que trabalhe com foco e sem interrupções?",
+    "tipo": "NOTA",
+    "obrigatoria": true
+  }
+},
+{
+  "model": "clima.pergunta",
+  "pk": 26,
+  "fields": {
+    "pesquisa": 11,
+    "texto": "O que falta no seu espaço de trabalho para que se sinta mais confortável?",
+    "tipo": "TEXTO",
+    "obrigatoria": true
+  }
+},
+{
+  "model": "clima.respostaclima",
+  "pk": 13,
+  "fields": {
+    "pesquisa": 11,
+    "setor": 1,
+    "nota_enps": 2,
+    "comentario_ia": "me motivou a falta de entendimento no assunto ",
+    "sentimento": "Neutro",
+    "data_envio": "2026-03-30T22:11:18.567Z"
+  }
+},
+{
+  "model": "clima.respostaclima",
+  "pk": 14,
+  "fields": {
+    "pesquisa": 11,
+    "setor": 2,
+    "nota_enps": 9,
+    "comentario_ia": "mais tecnologia me deixa feliz mais empolgado ",
+    "sentimento": "Positivo",
+    "data_envio": "2026-03-30T22:38:25.417Z"
+  }
+},
+{
+  "model": "clima.respostaclima",
+  "pk": 15,
+  "fields": {
+    "pesquisa": 10,
+    "setor": 2,
+    "nota_enps": 9,
+    "comentario_ia": "mais tecnologia me deixa feliz mais empolgado ",
+    "sentimento": "Positivo",
+    "data_envio": "2026-03-30T22:38:40.748Z"
+  }
+},
+{
+  "model": "clima.respostapergunta",
+  "pk": 20,
+  "fields": {
+    "resposta_clima": 13,
+    "pergunta": 24,
+    "resposta_texto": null,
+    "resposta_nota": 1
+  }
+},
+{
+  "model": "clima.respostapergunta",
+  "pk": 21,
+  "fields": {
+    "resposta_clima": 13,
+    "pergunta": 25,
+    "resposta_texto": null,
+    "resposta_nota": 2
+  }
+},
+{
+  "model": "clima.respostapergunta",
+  "pk": 22,
+  "fields": {
+    "resposta_clima": 13,
+    "pergunta": 26,
+    "resposta_texto": "tecnologia ",
+    "resposta_nota": null
+  }
+},
+{
+  "model": "clima.respostapergunta",
+  "pk": 23,
+  "fields": {
+    "resposta_clima": 14,
+    "pergunta": 24,
+    "resposta_texto": null,
+    "resposta_nota": 4
+  }
+},
+{
+  "model": "clima.respostapergunta",
+  "pk": 24,
+  "fields": {
+    "resposta_clima": 14,
+    "pergunta": 25,
+    "resposta_texto": null,
+    "resposta_nota": 4
+  }
+},
+{
+  "model": "clima.respostapergunta",
+  "pk": 25,
+  "fields": {
+    "resposta_clima": 14,
+    "pergunta": 26,
+    "resposta_texto": "mais tecnologia me deixa contente ",
+    "resposta_nota": null
+  }
+},
+{
+  "model": "clima.respostapergunta",
+  "pk": 26,
+  "fields": {
+    "resposta_clima": 15,
+    "pergunta": 22,
+    "resposta_texto": null,
+    "resposta_nota": 5
+  }
+},
+{
+  "model": "clima.respostapergunta",
+  "pk": 27,
+  "fields": {
+    "resposta_clima": 15,
+    "pergunta": 23,
+    "resposta_texto": "mais tecnologia me deixa feliz mais empolgado ",
+    "resposta_nota": null
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add perfil",
+    "content_type": [
+      "accounts",
+      "perfil"
+    ],
+    "codename": "add_perfil"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change perfil",
+    "content_type": [
+      "accounts",
+      "perfil"
+    ],
+    "codename": "change_perfil"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete perfil",
+    "content_type": [
+      "accounts",
+      "perfil"
+    ],
+    "codename": "delete_perfil"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view perfil",
+    "content_type": [
+      "accounts",
+      "perfil"
+    ],
+    "codename": "view_perfil"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add feedback",
+    "content_type": [
+      "feedbacks",
+      "feedback"
+    ],
+    "codename": "add_feedback"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change feedback",
+    "content_type": [
+      "feedbacks",
+      "feedback"
+    ],
+    "codename": "change_feedback"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete feedback",
+    "content_type": [
+      "feedbacks",
+      "feedback"
+    ],
+    "codename": "delete_feedback"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view feedback",
+    "content_type": [
+      "feedbacks",
+      "feedback"
+    ],
+    "codename": "view_feedback"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add resposta",
+    "content_type": [
+      "feedbacks",
+      "resposta"
+    ],
+    "codename": "add_resposta"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change resposta",
+    "content_type": [
+      "feedbacks",
+      "resposta"
+    ],
+    "codename": "change_resposta"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete resposta",
+    "content_type": [
+      "feedbacks",
+      "resposta"
+    ],
+    "codename": "delete_resposta"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view resposta",
+    "content_type": [
+      "feedbacks",
+      "resposta"
+    ],
+    "codename": "view_resposta"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add Setor",
+    "content_type": [
+      "setores",
+      "setor"
+    ],
+    "codename": "add_setor"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change Setor",
+    "content_type": [
+      "setores",
+      "setor"
+    ],
+    "codename": "change_setor"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete Setor",
+    "content_type": [
+      "setores",
+      "setor"
+    ],
+    "codename": "delete_setor"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view Setor",
+    "content_type": [
+      "setores",
+      "setor"
+    ],
+    "codename": "view_setor"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add pesquisa clima",
+    "content_type": [
+      "clima",
+      "pesquisaclima"
+    ],
+    "codename": "add_pesquisaclima"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change pesquisa clima",
+    "content_type": [
+      "clima",
+      "pesquisaclima"
+    ],
+    "codename": "change_pesquisaclima"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete pesquisa clima",
+    "content_type": [
+      "clima",
+      "pesquisaclima"
+    ],
+    "codename": "delete_pesquisaclima"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view pesquisa clima",
+    "content_type": [
+      "clima",
+      "pesquisaclima"
+    ],
+    "codename": "view_pesquisaclima"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add resposta clima",
+    "content_type": [
+      "clima",
+      "respostaclima"
+    ],
+    "codename": "add_respostaclima"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change resposta clima",
+    "content_type": [
+      "clima",
+      "respostaclima"
+    ],
+    "codename": "change_respostaclima"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete resposta clima",
+    "content_type": [
+      "clima",
+      "respostaclima"
+    ],
+    "codename": "delete_respostaclima"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view resposta clima",
+    "content_type": [
+      "clima",
+      "respostaclima"
+    ],
+    "codename": "view_respostaclima"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add pergunta",
+    "content_type": [
+      "clima",
+      "pergunta"
+    ],
+    "codename": "add_pergunta"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change pergunta",
+    "content_type": [
+      "clima",
+      "pergunta"
+    ],
+    "codename": "change_pergunta"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete pergunta",
+    "content_type": [
+      "clima",
+      "pergunta"
+    ],
+    "codename": "delete_pergunta"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view pergunta",
+    "content_type": [
+      "clima",
+      "pergunta"
+    ],
+    "codename": "view_pergunta"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add log entry",
+    "content_type": [
+      "admin",
+      "logentry"
+    ],
+    "codename": "add_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change log entry",
+    "content_type": [
+      "admin",
+      "logentry"
+    ],
+    "codename": "change_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete log entry",
+    "content_type": [
+      "admin",
+      "logentry"
+    ],
+    "codename": "delete_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view log entry",
+    "content_type": [
+      "admin",
+      "logentry"
+    ],
+    "codename": "view_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add permission",
+    "content_type": [
+      "auth",
+      "permission"
+    ],
+    "codename": "add_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change permission",
+    "content_type": [
+      "auth",
+      "permission"
+    ],
+    "codename": "change_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete permission",
+    "content_type": [
+      "auth",
+      "permission"
+    ],
+    "codename": "delete_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view permission",
+    "content_type": [
+      "auth",
+      "permission"
+    ],
+    "codename": "view_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add group",
+    "content_type": [
+      "auth",
+      "group"
+    ],
+    "codename": "add_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change group",
+    "content_type": [
+      "auth",
+      "group"
+    ],
+    "codename": "change_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete group",
+    "content_type": [
+      "auth",
+      "group"
+    ],
+    "codename": "delete_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view group",
+    "content_type": [
+      "auth",
+      "group"
+    ],
+    "codename": "view_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add user",
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "codename": "add_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change user",
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "codename": "change_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete user",
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "codename": "delete_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view user",
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "codename": "view_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add content type",
+    "content_type": [
+      "contenttypes",
+      "contenttype"
+    ],
+    "codename": "add_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change content type",
+    "content_type": [
+      "contenttypes",
+      "contenttype"
+    ],
+    "codename": "change_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete content type",
+    "content_type": [
+      "contenttypes",
+      "contenttype"
+    ],
+    "codename": "delete_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view content type",
+    "content_type": [
+      "contenttypes",
+      "contenttype"
+    ],
+    "codename": "view_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add session",
+    "content_type": [
+      "sessions",
+      "session"
+    ],
+    "codename": "add_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change session",
+    "content_type": [
+      "sessions",
+      "session"
+    ],
+    "codename": "change_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete session",
+    "content_type": [
+      "sessions",
+      "session"
+    ],
+    "codename": "delete_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view session",
+    "content_type": [
+      "sessions",
+      "session"
+    ],
+    "codename": "view_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add comunicado",
+    "content_type": [
+      "feedbacks",
+      "comunicado"
+    ],
+    "codename": "add_comunicado"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change comunicado",
+    "content_type": [
+      "feedbacks",
+      "comunicado"
+    ],
+    "codename": "change_comunicado"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete comunicado",
+    "content_type": [
+      "feedbacks",
+      "comunicado"
+    ],
+    "codename": "delete_comunicado"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view comunicado",
+    "content_type": [
+      "feedbacks",
+      "comunicado"
+    ],
+    "codename": "view_comunicado"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add resposta pergunta",
+    "content_type": [
+      "clima",
+      "respostapergunta"
+    ],
+    "codename": "add_respostapergunta"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change resposta pergunta",
+    "content_type": [
+      "clima",
+      "respostapergunta"
+    ],
+    "codename": "change_respostapergunta"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete resposta pergunta",
+    "content_type": [
+      "clima",
+      "respostapergunta"
+    ],
+    "codename": "delete_respostapergunta"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view resposta pergunta",
+    "content_type": [
+      "clima",
+      "respostapergunta"
+    ],
+    "codename": "view_respostapergunta"
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$nhGWqzmctMPIZit3aleAnX$0E8cJiiQR7lO9MPw7DwyLYW+EjZRh5743hdYw14oWHg=",
+    "last_login": "2026-04-23T23:18:03.796Z",
+    "is_superuser": true,
+    "username": "talles",
+    "first_name": "",
+    "last_name": "",
+    "email": "tauan12.udi@hotmail.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-03-02T19:04:18.750Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$720000$tyPLs08V9WvaUgorRhI2Gf$+9ANE9wc+WeP8Oq/IPFck0fZcZgKd/rAWj2C1LB8X1g=",
+    "last_login": null,
+    "is_superuser": true,
+    "username": "tauan",
+    "first_name": "",
+    "last_name": "",
+    "email": "tauan12@hotmail.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-03-02T19:16:35.088Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$720000$oFdY68SJkGYzc8hKotlhtA$fuK6TbTuvObCAkCmnO9Oe+DovHWuNyYkGlTuNUv1jNk=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "adm_financeiro",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-03-03T17:04:15.047Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$720000$xw9OuQiBkdQF73ktfDYaC9$l1VGhr//iWrEQob0nyVZUr/eXeHpIEoTafIft3AVQeI=",
+    "last_login": "2026-03-03T17:13:56.379Z",
+    "is_superuser": false,
+    "username": "adm_rh",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-03-03T17:09:13.178Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$yd2O6sMJx9PQ9vDvaPDCAC$4Wizd7vEeLt5YAX76CZ7aBb8ixpO8BNJ6h0JpjnmwIg=",
+    "last_login": "2026-04-22T21:27:25.700Z",
+    "is_superuser": false,
+    "username": "adm_ti",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-03-03T17:09:28.046Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$720000$rZPYwgASAxlE0cmF1s1U1e$pAalBMe7J4dIBRCYL+EhhgcHdnfuKAabvqbvHXzpR58=",
+    "last_login": "2026-03-10T16:31:52.354Z",
+    "is_superuser": false,
+    "username": "adm_operacoes",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-03-03T17:09:42.915Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$720000$LZY1er3COuIyJeu3F0Tk5l$f0a4EzPesvE9/GTgehJuUyBR5DpEgXV9aijYow6Rdmc=",
+    "last_login": "2026-03-10T16:34:54.628Z",
+    "is_superuser": false,
+    "username": "adm_vendas",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-03-03T17:10:10.432Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "setores.setor",
+  "pk": 1,
+  "fields": {
+    "nome": "Recursos Humanos",
+    "responsavel": [
+      "adm_rh"
+    ]
+  }
+},
+{
+  "model": "setores.setor",
+  "pk": 2,
+  "fields": {
+    "nome": "Tecnologia da Informação",
+    "responsavel": [
+      "adm_ti"
+    ]
+  }
+},
+{
+  "model": "setores.setor",
+  "pk": 3,
+  "fields": {
+    "nome": "Operações",
+    "responsavel": [
+      "adm_operacoes"
+    ]
+  }
+},
+{
+  "model": "setores.setor",
+  "pk": 4,
+  "fields": {
+    "nome": "Vendas",
+    "responsavel": [
+      "adm_vendas"
+    ]
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 1,
+  "fields": {
+    "action_time": "2026-03-02T19:23:04.627Z",
+    "user": [
+      "talles"
+    ],
+    "content_type": [
+      "clima",
+      "pesquisaclima"
+    ],
+    "object_id": "1",
+    "object_repr": "teste",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"pergunta\", \"object\": \"teste - teste1\"}}, {\"added\": {\"name\": \"pergunta\", \"object\": \"teste - teste 2\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 2,
+  "fields": {
+    "action_time": "2026-03-03T14:18:50.870Z",
+    "user": [
+      "talles"
+    ],
+    "content_type": [
+      "clima",
+      "pesquisaclima"
+    ],
+    "object_id": "1",
+    "object_repr": "Pesquisa de Satisfação Interna",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"pergunta\", \"object\": \"Em uma escala de 0 a 5, qual a probabilidade de voc\\u00ea recomendar esta empresa como um \\u00f3timo lugar para se trabalhar?\"}}, {\"added\": {\"name\": \"pergunta\", \"object\": \"Qual \\u00e9 o principal motivo da sua nota anterior?\"}}, {\"added\": {\"name\": \"pergunta\", \"object\": \"Se pudesse mudar apenas uma coisa no seu dia a dia hoje, o que seria?\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 3,
+  "fields": {
+    "action_time": "2026-03-04T19:20:02.109Z",
+    "user": [
+      "talles"
+    ],
+    "content_type": [
+      "clima",
+      "pesquisaclima"
+    ],
+    "object_id": "1",
+    "object_repr": "Pesquisa de Satisfação Interna",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 4,
+  "fields": {
+    "action_time": "2026-03-04T19:20:08.143Z",
+    "user": [
+      "talles"
+    ],
+    "content_type": [
+      "clima",
+      "pesquisaclima"
+    ],
+    "object_id": "2",
+    "object_repr": "como esta o sistema ",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 5,
+  "fields": {
+    "action_time": "2026-03-04T19:20:18.329Z",
+    "user": [
+      "talles"
+    ],
+    "content_type": [
+      "clima",
+      "pesquisaclima"
+    ],
+    "object_id": "3",
+    "object_repr": "Clima e Engajamento 2026",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 6,
+  "fields": {
+    "action_time": "2026-03-04T19:20:21.928Z",
+    "user": [
+      "talles"
+    ],
+    "content_type": [
+      "clima",
+      "pesquisaclima"
+    ],
+    "object_id": "4",
+    "object_repr": "asdasd",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 7,
+  "fields": {
+    "action_time": "2026-03-04T19:20:27.749Z",
+    "user": [
+      "talles"
+    ],
+    "content_type": [
+      "clima",
+      "pesquisaclima"
+    ],
+    "object_id": "5",
+    "object_repr": "sadsadasd",
+    "action_flag": 3,
+    "change_message": ""
+  }
+}
+]
