@@ -6,7 +6,6 @@ from .models import PesquisaClima, Pergunta, RespostaClima, RespostaPergunta
 from setores.models import Setor
 from feedbacks.views import analisar_sentimento_ia 
 
-@login_required
 def listar_pesquisas(request):
     """
     Esta view atende o botão 'Responder' do Dashboard.
@@ -26,11 +25,10 @@ def gerenciar_pesquisas_admin(request):
     pesquisas = PesquisaClima.objects.all().order_by('-data_inicio')
     return render(request, 'clima/gerenciar_pesquisas.html', {'pesquisas': pesquisas})
 
-@login_required
 def responder_pesquisa(request, pesquisa_id):
     pesquisa = get_object_or_404(PesquisaClima, id=pesquisa_id)
     
-    if not pesquisa.ativa and not request.user.is_superuser:
+    if not pesquisa.ativa and not (request.user.is_authenticated and request.user.is_superuser):
         messages.error(request, "Esta pesquisa não está mais aceitando respostas.")
         return redirect('listar_pesquisas')
 
