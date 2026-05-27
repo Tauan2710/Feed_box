@@ -1,12 +1,15 @@
 # pyrefly: ignore [missing-import]
 from django.shortcuts import render, redirect, get_object_or_404
+# pyrefly: ignore [missing-import]
 from django.db.models import Avg
+# pyrefly: ignore [missing-import]
 from django.contrib import messages
 # pyrefly: ignore [missing-import]
 from django.contrib.auth.decorators import login_required
+# pyrefly: ignore [missing-import]
 from .models import PesquisaClima, Pergunta, RespostaClima, RespostaPergunta
 from setores.models import Setor
-from feedbacks.views import analisar_sentimento_ia 
+from feedbacks.utils import analisar_sentimento_ia 
 
 
 def listar_pesquisas(request):

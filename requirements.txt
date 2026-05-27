@@ -2,5 +2,6 @@ django>=4.2,<5.0
 django-cors-headers
 djangorestframework
 django-jazzmin
+textblob
 gunicorn
 # Deixe apenas o essencial que você realmente usa no código

@@ -1,13 +1,21 @@
 import uuid
+# pyrefly: ignore [missing-import]
 from django.shortcuts import render, redirect, get_object_or_404
+# pyrefly: ignore [missing-import]
 from django.contrib.auth.decorators import login_required
+# pyrefly: ignore [missing-import]
 from django.contrib import messages
+# pyrefly: ignore [missing-import]
 from .models import Feedback, Resposta, Comunicado
+# pyrefly: ignore [missing-import]
 from .forms import RespostaForm
 from setores.models import Setor
+# pyrefly: ignore [missing-import]
 from django.db.models import Count, Avg
 from clima.models import PesquisaClima, RespostaClima, Pergunta 
+# pyrefly: ignore [missing-import]
 from textblob import TextBlob
+# pyrefly: ignore [missing-import]
 from django.core.paginator import Paginator
 
 def analisar_sentimento_ia(texto):
