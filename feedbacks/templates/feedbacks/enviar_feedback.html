@@ -20,6 +20,36 @@
         }
         .no-print { display: none !important; }
     }
+    
+    /* Estilos Premium para o Slider do eNPS */
+    input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background: #ffffff;
+        border: 3px solid currentColor;
+        cursor: pointer;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        transition: transform 0.1s ease, border-color 0.2s ease;
+    }
+    input[type="range"]::-moz-range-thumb {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background: #ffffff;
+        border: 3px solid currentColor;
+        cursor: pointer;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        transition: transform 0.1s ease, border-color 0.2s ease;
+    }
+    input[type="range"]::-webkit-slider-thumb:active {
+        transform: scale(1.2);
+    }
+    input[type="range"]::-moz-range-thumb:active {
+        transform: scale(1.2);
+    }
 </style>
 
 <div class="min-h-screen bg-[#F8FAFC] bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:20px_20px] pb-20">
@@ -122,21 +152,25 @@
                             </div>
                         </div>
 
-                        <div class="bg-slate-50 p-8 rounded-[2rem] border border-slate-100">
-                            <label class="block text-xs font-black text-slate-500 mb-6 text-center uppercase tracking-[0.2em]">O quanto você recomendaria nossa empresa?</label>
-                            <div class="flex justify-between gap-2 overflow-x-auto pb-2">
-                                {% for i in "0123456789" %}
-                                    <label class="flex-1 min-w-[40px]">
-                                        <input type="radio" name="nota_enps" value="{{ i }}" class="peer hidden">
-                                        <div class="text-center py-3 rounded-xl bg-white border border-slate-200 cursor-pointer peer-checked:bg-blue-600 peer-checked:text-white peer-checked:border-blue-600 font-black transition-all shadow-sm hover:border-blue-300">
-                                            {{ i }}
-                                        </div>
-                                    </label>
-                                {% endfor %}
-                                <label class="flex-1 min-w-[40px]">
-                                    <input type="radio" name="nota_enps" value="10" class="peer hidden">
-                                    <div class="text-center py-3 rounded-xl bg-white border border-slate-200 cursor-pointer peer-checked:bg-blue-600 peer-checked:text-white peer-checked:border-blue-600 font-black transition-all shadow-sm">10</div>
-                                </label>
+                        <div class="bg-slate-50 p-8 rounded-[2rem] border border-slate-100 space-y-6">
+                            <label class="block text-xs font-black text-slate-500 text-center uppercase tracking-[0.2em]">O quanto você recomendaria nossa empresa?</label>
+                            
+                            <div class="space-y-4">
+                                <input type="range" name="nota_enps" id="nota_enps_slider" min="0" max="10" value="5" 
+                                       class="w-full h-3 bg-slate-200 rounded-lg appearance-none cursor-pointer focus:outline-none transition-all duration-150">
+                                
+                                <div class="flex justify-between text-[10px] font-black text-slate-400 uppercase tracking-widest px-1">
+                                    <span>0 (Improvável)</span>
+                                    <span>5</span>
+                                    <span>10 (Muito Provável)</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Visual Feedback -->
+                            <div class="flex items-center justify-center">
+                                <div id="nps_value_display" class="w-16 h-16 rounded-full flex items-center justify-center text-3xl font-black text-white shadow-xl transition-all duration-300 transform scale-100">
+                                    5
+                                </div>
                             </div>
                         </div>
 
@@ -256,5 +290,42 @@
         btn.classList.add('opacity-80', 'cursor-not-allowed');
         lucide.createIcons();
     });
+
+    // Lógica do Slider eNPS
+    const slider = document.getElementById('nota_enps_slider');
+    const valueDisplay = document.getElementById('nps_value_display');
+
+    function updateNPSSlider(valor) {
+        if (!slider) return;
+        const percent = (valor / 10) * 100;
+        
+        let color = '#f59e0b'; // Amber (Default)
+        let bgClass = 'bg-amber-500';
+
+        if (valor <= 6) {
+            color = '#ef4444'; // Red
+            bgClass = 'bg-red-500';
+        } else if (valor >= 9) {
+            color = '#10b981'; // Emerald
+            bgClass = 'bg-emerald-500';
+        }
+
+        // Atualiza a cor e preenchimento da barra
+        slider.style.color = color;
+        slider.style.background = `linear-gradient(to right, ${color} 0%, ${color} ${percent}%, #e2e8f0 ${percent}%, #e2e8f0 100%)`;
+
+        // Atualiza badge de valor
+        if (valueDisplay) {
+            valueDisplay.textContent = valor;
+            valueDisplay.className = `w-16 h-16 rounded-full flex items-center justify-center text-3xl font-black text-white shadow-xl transition-all duration-300 transform ${bgClass}`;
+        }
+    }
+
+    if (slider) {
+        slider.addEventListener('input', (e) => {
+            updateNPSSlider(parseInt(e.target.value));
+        });
+        updateNPSSlider(parseInt(slider.value));
+    }
 </script>
 {% endblock %}

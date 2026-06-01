@@ -1,5 +1,36 @@
 {% extends 'base.html' %}
 {% block content %}
+<style>
+    /* Estilos Premium para o Slider do eNPS */
+    input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background: #ffffff;
+        border: 3px solid currentColor;
+        cursor: pointer;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        transition: transform 0.1s ease, border-color 0.2s ease;
+    }
+    input[type="range"]::-moz-range-thumb {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background: #ffffff;
+        border: 3px solid currentColor;
+        cursor: pointer;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        transition: transform 0.1s ease, border-color 0.2s ease;
+    }
+    input[type="range"]::-webkit-slider-thumb:active {
+        transform: scale(1.2);
+    }
+    input[type="range"]::-moz-range-thumb:active {
+        transform: scale(1.2);
+    }
+</style>
 <div class="max-w-2xl mx-auto p-6 animate__animated animate__fadeIn">
     <div class="text-center mb-10">
         <h1 class="text-3xl font-black text-gray-800 uppercase italic">{{ pesquisa.titulo }}</h1>
@@ -49,34 +80,30 @@
 
         <hr class="border-gray-100">
 
-        <div class="bg-gray-50 p-8 rounded-3xl border-2 border-dashed border-gray-200">
-            <h3 class="text-xs font-black text-gray-500 uppercase mb-6 text-center tracking-widest">Métrica de Lealdade (eNPS)</h3>
+        <div class="bg-gray-50 p-8 rounded-3xl border-2 border-dashed border-gray-200 space-y-6">
+            <h3 class="text-xs font-black text-gray-500 uppercase text-center tracking-widest">Métrica de Lealdade (eNPS)</h3>
             
-            <div class="mb-8">
-                <label class="block text-center text-sm font-bold text-gray-600 mb-4">
+            <div class="space-y-4">
+                <label class="block text-center text-sm font-bold text-gray-600 font-mono uppercase tracking-tighter">
                     Em uma escala de 0 a 10, qual a probabilidade de você recomendar nossa empresa para um amigo?
                 </label>
                 
-                <div class="flex flex-wrap justify-center gap-1.5">
-                    {% for i in "0123456789" %}
-                    <label class="cursor-pointer">
-                        <input type="radio" name="nota_enps" value="{{ i }}" class="peer hidden" required>
-                        <div class="w-10 h-10 flex items-center justify-center rounded-xl bg-white border-2 border-gray-200 text-gray-400 font-bold peer-checked:bg-red-500 peer-checked:border-red-500 peer-checked:text-white transition-all hover:border-blue-400">
-                            {{ i }}
-                        </div>
-                    </label>
-                    {% endfor %}
-                    <label class="cursor-pointer">
-                        <input type="radio" name="nota_enps" value="10" class="peer hidden" required>
-                        <div class="w-10 h-10 flex items-center justify-center rounded-xl bg-white border-2 border-gray-200 text-gray-400 font-bold peer-checked:bg-green-500 peer-checked:border-green-500 peer-checked:text-white transition-all hover:border-blue-400">
-                            10
-                        </div>
-                    </label>
+                <div class="space-y-4 px-2">
+                    <input type="range" name="nota_enps" id="nota_enps_slider" min="0" max="10" value="5" 
+                           class="w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer focus:outline-none transition-all duration-150">
+                    
+                    <div class="flex justify-between text-[10px] font-black text-gray-400 uppercase tracking-widest px-1">
+                        <span>0 (Improvável)</span>
+                        <span>5</span>
+                        <span>10 (Muito Provável)</span>
+                    </div>
                 </div>
-                <div class="flex justify-between mt-3 px-2 text-[10px] font-black text-gray-400 uppercase tracking-tighter">
-                    <span>Muito Improvável (0-6)</span>
-                    <span>Neutro (7-8)</span>
-                    <span>Promotor (9-10)</span>
+
+                <!-- Visual Feedback -->
+                <div class="flex items-center justify-center">
+                    <div id="nps_value_display" class="w-16 h-16 rounded-full flex items-center justify-center text-3xl font-black text-white shadow-xl transition-all duration-300 transform scale-100">
+                        5
+                    </div>
                 </div>
             </div>
 
@@ -91,4 +118,43 @@
         </button>
     </form>
 </div>
+
+<script>
+    // Lógica do Slider eNPS
+    const slider = document.getElementById('nota_enps_slider');
+    const valueDisplay = document.getElementById('nps_value_display');
+
+    function updateNPSSlider(valor) {
+        if (!slider) return;
+        const percent = (valor / 10) * 100;
+        
+        let color = '#f59e0b'; // Amber (Default)
+        let bgClass = 'bg-amber-500';
+
+        if (valor <= 6) {
+            color = '#ef4444'; // Red
+            bgClass = 'bg-red-500';
+        } else if (valor >= 9) {
+            color = '#10b981'; // Emerald
+            bgClass = 'bg-emerald-500';
+        }
+
+        // Atualiza a cor e preenchimento da barra
+        slider.style.color = color;
+        slider.style.background = `linear-gradient(to right, ${color} 0%, ${color} ${percent}%, #e2e8f0 ${percent}%, #e2e8f0 100%)`;
+
+        // Atualiza badge de valor
+        if (valueDisplay) {
+            valueDisplay.textContent = valor;
+            valueDisplay.className = `w-16 h-16 rounded-full flex items-center justify-center text-3xl font-black text-white shadow-xl transition-all duration-300 transform ${bgClass}`;
+        }
+    }
+
+    if (slider) {
+        slider.addEventListener('input', (e) => {
+            updateNPSSlider(parseInt(e.target.value));
+        });
+        updateNPSSlider(parseInt(slider.value));
+    }
+</script>
 {% endblock %}
