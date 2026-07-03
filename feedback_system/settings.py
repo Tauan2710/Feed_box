@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-4#(+u!45*@ugf*ppw_eiw@up_9w#kgn=_4jlf$m#5wmcg&vk0r'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['tauan.pythonanywhere.com', 'localhost', '127.0.0.1']
 
@@ -136,3 +136,15 @@ STATICFILES_DIRS = [
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Email Configuration
+# Para desenvolvimento, use: EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# Para produção com SMTP (ex: Gmail), configure:
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'  # Desenvolvimento
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'  # Produção
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_PORT = 587
+# EMAIL_USE_TLS = True
+# EMAIL_HOST_USER = 'seu_email@gmail.com'
+# EMAIL_HOST_PASSWORD = 'sua_senha_de_app'
+# DEFAULT_FROM_EMAIL = 'seu_email@gmail.com'

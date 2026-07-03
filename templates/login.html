@@ -45,10 +45,12 @@
                 </div>
             </div>
 
-            {% if form.errors or error %}
+            {% if messages %}
+            {% for message in messages %}
             <div class="text-red-500 text-[10px] font-black text-center bg-red-50 py-3 rounded-2xl uppercase tracking-tighter animate__animated animate__shakeX">
-                Usuário ou senha incorretos.
+                {{ message }}
             </div>
+            {% endfor %}
             {% endif %}
 
             <div>
@@ -56,6 +58,13 @@
                     class="group relative w-full flex justify-center py-4 px-4 border border-transparent text-xs font-black rounded-2xl text-white bg-blue-600 hover:bg-blue-700 shadow-lg shadow-blue-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all transform hover:scale-[1.02] uppercase tracking-widest">
                     Entrar no Sistema
                 </button>
+            </div>
+
+            <div class="text-center pt-4">
+                <a href="{% url 'password_reset' %}" 
+                    class="text-[11px] font-bold text-blue-600 hover:text-blue-700 uppercase tracking-widest transition-colors">
+                    Esqueceu sua senha?
+                </a>
             </div>
         </form>
     </div>

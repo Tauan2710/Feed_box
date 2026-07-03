@@ -1,30 +1,78 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <title>Login</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% load static %}
 
-<h2>Login do Sistema</h2>
+{% block title %}Login - ESPECIALISTA{% endblock %}
 
-<form method="post">
-    {% csrf_token %}
-    
-    <label>Usuário:</label><br>
-    <input type="text" name="username"><br><br>
+{% block content %}
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+    <div class="card shadow-lg" style="width: 100%; max-width: 450px;">
+        <div class="card-body p-5">
+            <h2 class="text-center mb-1">
+                <span style="color: #1e90ff; font-weight: bold;">ESPECIALISTA</span>
+            </h2>
+            <p class="text-center text-muted mb-4" style="font-size: 12px;">
+                ÁREA RESTRITA PARA ADMINISTRADORES E GERENTES
+            </p>
 
-    <label>Senha:</label><br>
-    <input type="password" name="password"><br><br>
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                {% endfor %}
+            {% endif %}
 
-    <button type="submit">Entrar</button>
-</form>
+            <form method="post" novalidate>
+                {% csrf_token %}
+                
+                <div class="mb-3">
+                    <label for="username" class="form-label text-muted">USUÁRIO</label>
+                    <input type="text" class="form-control" id="username" name="username" placeholder="Seu usuário" required>
+                </div>
 
-{% if messages %}
-    {% for message in messages %}
-        <p style="color:red">{{ message }}</p>
-    {% endfor %}
-{% endif %}
+                <div class="mb-3">
+                    <label for="password" class="form-label text-muted">SENHA</label>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="••••••••" required>
+                </div>
 
-</body>
-</html>
+                <button type="submit" class="btn btn-primary w-100 py-2 fw-bold">
+                    ENTRAR NO SISTEMA
+                </button>
+            </form>
+
+            <hr class="my-4">
+
+            <p class="text-center">
+                <a href="{% url 'password_reset' %}" class="text-primary fw-bold" style="text-decoration: none;">
+                    Esqueceu sua senha?
+                </a>
+            </p>
+        </div>
+    </div>
+</div>
+
+<style>
+    .form-control {
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+
+    .form-control:focus {
+        border-color: #1e90ff;
+        box-shadow: 0 0 5px rgba(30, 144, 255, 0.3);
+    }
+
+    .btn-primary {
+        background-color: #1e90ff;
+        border: none;
+        border-radius: 25px;
+        transition: all 0.3s ease;
+    }
+
+    .btn-primary:hover {
+        background-color: #1873cc;
+        transform: translateY(-2px);
+    }
+</style>
+{% endblock %}
