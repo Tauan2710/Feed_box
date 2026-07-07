@@ -50,19 +50,36 @@ def analisar_sentimento_ia(texto):
 def dashboard(request):
     user = request.user
     setor_id = request.GET.get('setor') 
+    data_inicio = request.GET.get('data_inicio')
+    data_fim = request.GET.get('data_fim')
 
     # Definição da base de dados de acordo com a permissão
     if user.is_superuser:
         feedbacks_base = Feedback.objects.all()
         setores_list = Setor.objects.all()
-        pesquisas_recentes = PesquisaClima.objects.all().annotate(
-            total_respostas=Count('respostas'),
-            media_notas=Avg('respostas__nota_enps')
-        ).order_by('-id')[:5]
         
-        clima_dados_raw = RespostaClima.objects.values('nota_enps').annotate(total=Count('id')).order_by('nota_enps')
+        # Filtro de clima por data
+        clima_qs = RespostaClima.objects.all()
+        if data_inicio:
+            clima_qs = clima_qs.filter(data_envio__date__gte=data_inicio)
+        if data_fim:
+            clima_qs = clima_qs.filter(data_envio__date__lte=data_fim)
+            
+        clima_dados_raw = clima_qs.values('nota_enps').annotate(total=Count('id')).order_by('nota_enps')
         clima_labels = [str(d['nota_enps']) for d in clima_dados_raw]
         clima_valores = [d['total'] for d in clima_dados_raw]
+        
+        from django.db.models import Q
+        respostas_filter = Q()
+        if data_inicio:
+            respostas_filter &= Q(respostas__data_envio__date__gte=data_inicio)
+        if data_fim:
+            respostas_filter &= Q(respostas__data_envio__date__lte=data_fim)
+            
+        pesquisas_recentes = PesquisaClima.objects.all().annotate(
+            total_respostas=Count('respostas', filter=respostas_filter),
+            media_notas=Avg('respostas__nota_enps', filter=respostas_filter)
+        ).order_by('-id')[:5]
     else:
         feedbacks_base = Feedback.objects.filter(setor__responsavel=user)
         setores_list = Setor.objects.filter(responsavel=user)
@@ -73,6 +90,12 @@ def dashboard(request):
     # Aplicação de filtro por setor, se selecionado
     if setor_id:
         feedbacks_base = feedbacks_base.filter(setor_id=setor_id)
+
+    # Aplicação de filtro por datas, se selecionado
+    if data_inicio:
+        feedbacks_base = feedbacks_base.filter(data_criacao__date__gte=data_inicio)
+    if data_fim:
+        feedbacks_base = feedbacks_base.filter(data_criacao__date__lte=data_fim)
 
     # --- LÓGICA DE PAGINAÇÃO ---
     feedbacks_ordenados = feedbacks_base.select_related('setor').order_by('-data_criacao')

@@ -48,7 +48,7 @@
     <div class="p-6 border-t border-gray-100 bg-gray-50 flex flex-col md:flex-row items-center justify-between gap-4">
         <div class="flex items-center gap-3">
             {% if feedbacks.has_previous %}
-                <a href="?{% if request.GET.setor %}setor={{ request.GET.setor }}&{% endif %}page={{ feedbacks.previous_page_number }}" class="dashboard-ajax-pagination flex items-center gap-2 bg-white text-slate-900 border border-slate-200 px-5 py-3 rounded-2xl font-black text-xs uppercase hover:bg-slate-50 transition-all shadow-sm">
+                <a href="?{% if request.GET.setor %}setor={{ request.GET.setor }}&{% endif %}{% if request.GET.data_inicio %}data_inicio={{ request.GET.data_inicio }}&{% endif %}{% if request.GET.data_fim %}data_fim={{ request.GET.data_fim }}&{% endif %}page={{ feedbacks.previous_page_number }}" class="dashboard-ajax-pagination flex items-center gap-2 bg-white text-slate-900 border border-slate-200 px-5 py-3 rounded-2xl font-black text-xs uppercase hover:bg-slate-50 transition-all shadow-sm">
                     <i data-lucide="chevron-left" class="w-4 h-4"></i> Anterior
                 </a>
             {% endif %}
@@ -58,7 +58,7 @@
         </div>
         <div class="flex items-center gap-3">
             {% if feedbacks.has_next %}
-                <a href="?{% if request.GET.setor %}setor={{ request.GET.setor }}&{% endif %}page={{ feedbacks.next_page_number }}" class="dashboard-ajax-pagination flex items-center gap-2 bg-white text-slate-900 border border-slate-200 px-5 py-3 rounded-2xl font-black text-xs uppercase hover:bg-slate-50 transition-all shadow-sm">
+                <a href="?{% if request.GET.setor %}setor={{ request.GET.setor }}&{% endif %}{% if request.GET.data_inicio %}data_inicio={{ request.GET.data_inicio }}&{% endif %}{% if request.GET.data_fim %}data_fim={{ request.GET.data_fim }}&{% endif %}page={{ feedbacks.next_page_number }}" class="dashboard-ajax-pagination flex items-center gap-2 bg-white text-slate-900 border border-slate-200 px-5 py-3 rounded-2xl font-black text-xs uppercase hover:bg-slate-50 transition-all shadow-sm">
                     Próxima <i data-lucide="chevron-right" class="w-4 h-4"></i>
                 </a>
             {% endif %}
