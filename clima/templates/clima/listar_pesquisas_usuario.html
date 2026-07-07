@@ -1,29 +1,76 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <title>Pesquisas Disponíveis</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-gray-50 p-6">
-    <div class="max-w-4xl mx-auto">
-        <h1 class="text-2xl font-black text-gray-800 mb-6">PESQUISAS <span class="text-green-600">ATIVAS</span></h1>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {% for pesquisa in pesquisas %}
-            <div class="bg-white p-6 rounded-2xl shadow-md border border-gray-100">
-                <h3 class="text-xl font-bold text-gray-800 mb-2">{{ pesquisa.titulo }}</h3>
-                <p class="text-gray-500 text-sm mb-4">{{ pesquisa.descricao }}</p>
+{% extends 'base.html' %}
+{% block title %}Pesquisas Disponíveis - Feedbox{% endblock %}
+
+{% block content %}
+<div class="max-w-5xl mx-auto px-6 py-8 animate__animated animate__fadeIn">
+    
+    <!-- Banner de Boas-Vindas -->
+    <div class="text-center max-w-xl mx-auto mb-12">
+        <span class="bg-purple-100 text-purple-700 text-[10px] px-3 py-1 rounded-full font-black uppercase tracking-widest">Feedback & Clima</span>
+        <h1 class="text-3xl font-black text-gray-900 uppercase italic mt-3">Pesquisas <span class="text-purple-600">Ativas</span></h1>
+        <p class="text-gray-500 text-sm mt-2 leading-relaxed">
+            Sua opinião é fundamental para construirmos uma empresa cada vez melhor. Todas as respostas são coletadas de forma anônima e segura.
+        </p>
+    </div>
+
+    <!-- Lista de Pesquisas -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {% for pesquisa in pesquisas %}
+        <div class="bg-white p-8 rounded-[2rem] border border-gray-100 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col justify-between relative overflow-hidden group">
+            <!-- Detalhe decorativo superior em degradê -->
+            <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-purple-500 to-indigo-600"></div>
+            
+            <div>
+                <!-- Ícone da Pesquisa -->
+                <div class="w-12 h-12 bg-purple-50 rounded-2xl flex items-center justify-center text-purple-600 mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <i data-lucide="clipboard-list" class="w-6 h-6"></i>
+                </div>
+
+                <h3 class="text-xl font-black text-gray-800 leading-snug mb-3 group-hover:text-purple-700 transition-colors">
+                    {{ pesquisa.titulo }}
+                </h3>
+                
+                <p class="text-gray-500 text-sm mb-8 leading-relaxed font-medium">
+                    {{ pesquisa.descricao|default:"Responda a essa pesquisa rápida e nos ajude a avaliar nosso clima de trabalho e implementar melhorias para a equipe." }}
+                </p>
+            </div>
+
+            <!-- Rodapé do Card / Ação -->
+            <div class="flex items-center justify-between border-t border-gray-50 pt-6 mt-auto">
+                <div class="flex items-center gap-2 text-gray-400">
+                    <i data-lucide="calendar" class="w-4 h-4"></i>
+                    <span class="text-[10px] font-black uppercase tracking-wider">Disponível</span>
+                </div>
                 
                 <a href="{% url 'responder_pesquisa' pesquisa.id %}" 
-                   class="block text-center bg-green-600 text-white font-bold py-3 rounded-xl hover:bg-green-700 transition-all">
-                    Responder Agora
+                   class="bg-purple-600 text-white font-black px-6 py-3 rounded-xl text-xs uppercase tracking-widest hover:bg-black transition-all shadow-lg shadow-purple-100 flex items-center gap-2">
+                    <span>Responder agora</span>
+                    <i data-lucide="arrow-right" class="w-4 h-4"></i>
                 </a>
             </div>
-            {% empty %}
-            <p class="text-gray-400 italic">Não há pesquisas disponíveis no momento.</p>
-            {% endfor %}
         </div>
+        {% empty %}
+        <!-- Estado Vazio Premium -->
+        <div class="col-span-full bg-white rounded-[2rem] border-2 border-dashed border-gray-200 p-12 text-center flex flex-col items-center justify-center">
+            <div class="w-16 h-16 bg-gray-50 rounded-full flex items-center justify-center text-gray-300 mb-4">
+                <i data-lucide="inbox" class="w-8 h-8"></i>
+            </div>
+            <h4 class="text-lg font-black text-gray-800 uppercase tracking-tight">Fila de Pesquisas Vazia</h4>
+            <p class="text-gray-400 text-xs mt-1 max-w-sm">
+                No momento não há nenhuma pesquisa de clima ativa para ser respondida. Fique atento às comunicações internas!
+            </p>
+        </div>
+        {% endfor %}
     </div>
-</body>
-</html>
+
+</div>
+
+<!-- Scripts de Ícones Lucide -->
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        if (typeof lucide !== 'undefined') {
+            lucide.createIcons();
+        }
+    });
+</script>
+{% endblock %}
