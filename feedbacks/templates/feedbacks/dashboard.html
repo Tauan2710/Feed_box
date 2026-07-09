@@ -6,6 +6,7 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 <script src="https://unpkg.com/lucide@latest"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <div class="max-w-7xl mx-auto p-6 space-y-8 animate__animated animate__fadeIn bg-gray-50 min-h-screen">
     
@@ -45,6 +46,11 @@
                 
                 <div class="h-5 w-px bg-gray-200 hidden md:block"></div>
                 
+                <div class="h-5 w-px bg-gray-200 hidden md:block"></div>
+                
+                {% if request.GET.status %}<input type="hidden" name="status" value="{{ request.GET.status }}">{% endif %}
+                {% if request.GET.sentimento %}<input type="hidden" name="sentimento" value="{{ request.GET.sentimento }}">{% endif %}
+                
                 <!-- Período de Datas Unificado -->
                 <div class="flex items-center gap-2 bg-gray-50 border border-gray-100 rounded-xl px-3 py-1.5 hover:border-gray-200 transition-colors">
                     <i data-lucide="calendar" class="w-3.5 h-3.5 text-gray-400"></i>
@@ -54,16 +60,17 @@
                 </div>
 
                 <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-xl text-[10px] font-black hover:bg-blue-700 transition shadow-md shadow-blue-100 uppercase tracking-widest">Filtrar</button>
-                {% if request.GET.setor or request.GET.data_inicio or request.GET.data_fim %}
+                {% if request.GET.setor or request.GET.data_inicio or request.GET.data_fim or request.GET.status or request.GET.sentimento %}
                     <a href="?" class="bg-gray-100 text-gray-600 px-4 py-2 rounded-xl text-[10px] font-black hover:bg-gray-200 transition uppercase tracking-widest">Limpar</a>
                 {% endif %}
             </form>
 
 
-            <form action="{% url 'logout' %}" method="POST">
+            <form id="logout-form" action="{% url 'logout' %}" method="POST">
                 {% csrf_token %}
-                <button type="submit" class="bg-red-50 text-red-600 px-4 py-2 rounded-xl text-[10px] font-black hover:bg-red-100 transition flex items-center gap-2 shadow-sm uppercase">SAIR</button>
+                <button type="button" onclick="confirmarSaida(event)" class="bg-red-50 text-red-600 px-4 py-2 rounded-xl text-[10px] font-black hover:bg-red-100 transition flex items-center gap-2 shadow-sm uppercase">SAIR</button>
             </form>
+
         </div>
     </div>
 
@@ -291,6 +298,31 @@
         });
     }
 
+    function confirmarSaida(event) {
+        event.preventDefault();
+        Swal.fire({
+            title: 'Deseja realmente sair?',
+            text: "Você precisará fazer login novamente para acessar o painel.",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#2563eb', // Azul correspondente ao botão Filtrar
+            cancelButtonColor: '#ef4444',  // Vermelho
+            confirmButtonText: 'Sim, Sair',
+            cancelButtonText: 'Cancelar',
+            customClass: {
+                popup: 'rounded-[1.5rem]',
+                confirmButton: 'bg-blue-600 text-white font-black px-4 py-2 rounded-xl text-[10px] uppercase tracking-widest outline-none border-none ml-2',
+                cancelButton: 'bg-red-500 text-white font-black px-4 py-2 rounded-xl text-[10px] uppercase tracking-widest outline-none border-none'
+            },
+            buttonsStyling: false
+        }).then((result) => {
+            if (result.isConfirmed) {
+                document.getElementById('logout-form').submit();
+            }
+        });
+    }
+
     initDashboardAjaxPagination();
 </script>
+
 {% endblock %}

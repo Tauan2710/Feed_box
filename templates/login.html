@@ -60,13 +60,21 @@
                 </button>
             </div>
 
-            <div class="text-center pt-4">
+            <div class="text-center pt-4 flex flex-col items-center gap-3">
                 <a href="{% url 'password_reset' %}" 
                     class="text-[11px] font-bold text-blue-600 hover:text-blue-700 uppercase tracking-widest transition-colors">
                     Esqueceu sua senha?
                 </a>
+                
+                <div class="w-full h-px bg-gray-100 my-1"></div>
+                
+                <a href="{% url 'enviar_feedback' %}" 
+                    class="inline-flex items-center justify-center gap-2 text-[10px] font-black text-gray-400 hover:text-blue-600 uppercase tracking-widest transition-colors py-1.5 px-4 rounded-xl border border-gray-100 hover:border-blue-100 hover:bg-blue-50/50 w-full">
+                    <i class="fas fa-arrow-left text-[9px]"></i> Voltar ao Envio de Feedback
+                </a>
             </div>
         </form>
+
     </div>
 </div>
 

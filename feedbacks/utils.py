@@ -18,8 +18,9 @@ def analisar_sentimento_ia(texto):
             return 'Negativo'
     except:
         pass
-    
-    # Léxico de apoio técnico para o projeto Feedbox
+
+    # (Léxico de apoio técnico para o projeto Feedbox) 
+    # (aqui foi colocado para ajudar a IA a entender melhor o nosso contexto)
     palavras_positivas = ['bom', 'boa', 'ótimo', 'otimo', 'excelente', 'parabéns', 'parabens', 'gosto', 'gostei', 'feliz', 'obrigado', 'ajudou', 'eficiente', 'sucesso']
     palavras_negativas = ['ruim', 'péssimo', 'pessimo', 'horrível', 'horrivel', 'difícil', 'dificil', 'problema', 'erro', 'falha', 'atraso', 'absurdo', 'errado', 'pior', 'calor', 'quebrado']
     

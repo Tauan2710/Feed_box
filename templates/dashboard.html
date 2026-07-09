@@ -131,7 +131,7 @@
 
 <header>
     <h1>Dashboard Operacional</h1>
-    <form method="post" action="{% url 'logout' %}">
+    <form method="post" action="{% url 'logout' %}" onsubmit="return confirm('Deseja realmente sair?');">
         {% csrf_token %}
         <button type="submit" class="btn-logout">Sair</button>
     </form>

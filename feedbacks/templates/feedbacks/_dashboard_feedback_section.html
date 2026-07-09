@@ -1,6 +1,28 @@
 <div class="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden">
-    <div class="bg-gray-800 p-6 flex justify-between items-center">
+    <div class="bg-gray-800 p-6 flex flex-col md:flex-row justify-between items-center gap-4">
         <h3 class="text-lg font-bold text-white italic uppercase">Fila de Atendimento & Análise de Sentimento</h3>
+        <form method="GET" action="{% url 'dashboard' %}" class="flex flex-wrap items-center gap-3 bg-gray-700/50 p-2 rounded-2xl shadow-sm border border-gray-600">
+            {% if request.GET.setor %}<input type="hidden" name="setor" value="{{ request.GET.setor }}">{% endif %}
+            {% if request.GET.data_inicio %}<input type="hidden" name="data_inicio" value="{{ request.GET.data_inicio }}">{% endif %}
+            {% if request.GET.data_fim %}<input type="hidden" name="data_fim" value="{{ request.GET.data_fim }}">{% endif %}
+            
+            <div class="flex items-center pl-2">
+                <select name="status" onchange="this.form.submit()" class="text-[10px] font-black border-none focus:ring-0 bg-transparent uppercase text-gray-200 outline-none cursor-pointer">
+                    <option value="" class="text-gray-800">Todos os Status</option>
+                    <option value="pendentes" class="text-gray-800" {% if request.GET.status == 'pendentes' %}selected{% endif %}>A Responder</option>
+                    <option value="respondidos" class="text-gray-800" {% if request.GET.status == 'respondidos' %}selected{% endif %}>Respondidos</option>
+                </select>
+            </div>
+            <div class="h-4 w-px bg-gray-600"></div>
+            <div class="flex items-center pr-2">
+                <select name="sentimento" onchange="this.form.submit()" class="text-[10px] font-black border-none focus:ring-0 bg-transparent uppercase text-gray-200 outline-none cursor-pointer">
+                    <option value="" class="text-gray-800">Todos os Sentimentos</option>
+                    <option value="Positivo" class="text-gray-800" {% if request.GET.sentimento == 'Positivo' %}selected{% endif %}>Positivo</option>
+                    <option value="Neutro" class="text-gray-800" {% if request.GET.sentimento == 'Neutro' %}selected{% endif %}>Neutro</option>
+                    <option value="Negativo" class="text-gray-800" {% if request.GET.sentimento == 'Negativo' %}selected{% endif %}>Crítico</option>
+                </select>
+            </div>
+        </form>
     </div>
     <div class="overflow-x-auto">
         <table class="w-full text-left">
@@ -48,7 +70,7 @@
     <div class="p-6 border-t border-gray-100 bg-gray-50 flex flex-col md:flex-row items-center justify-between gap-4">
         <div class="flex items-center gap-3">
             {% if feedbacks.has_previous %}
-                <a href="?{% if request.GET.setor %}setor={{ request.GET.setor }}&{% endif %}{% if request.GET.data_inicio %}data_inicio={{ request.GET.data_inicio }}&{% endif %}{% if request.GET.data_fim %}data_fim={{ request.GET.data_fim }}&{% endif %}page={{ feedbacks.previous_page_number }}" class="dashboard-ajax-pagination flex items-center gap-2 bg-white text-slate-900 border border-slate-200 px-5 py-3 rounded-2xl font-black text-xs uppercase hover:bg-slate-50 transition-all shadow-sm">
+                <a href="?{% if request.GET.setor %}setor={{ request.GET.setor }}&{% endif %}{% if request.GET.status %}status={{ request.GET.status }}&{% endif %}{% if request.GET.sentimento %}sentimento={{ request.GET.sentimento }}&{% endif %}{% if request.GET.data_inicio %}data_inicio={{ request.GET.data_inicio }}&{% endif %}{% if request.GET.data_fim %}data_fim={{ request.GET.data_fim }}&{% endif %}page={{ feedbacks.previous_page_number }}" class="dashboard-ajax-pagination flex items-center gap-2 bg-white text-slate-900 border border-slate-200 px-5 py-3 rounded-2xl font-black text-xs uppercase hover:bg-slate-50 transition-all shadow-sm">
                     <i data-lucide="chevron-left" class="w-4 h-4"></i> Anterior
                 </a>
             {% endif %}
@@ -58,7 +80,7 @@
         </div>
         <div class="flex items-center gap-3">
             {% if feedbacks.has_next %}
-                <a href="?{% if request.GET.setor %}setor={{ request.GET.setor }}&{% endif %}{% if request.GET.data_inicio %}data_inicio={{ request.GET.data_inicio }}&{% endif %}{% if request.GET.data_fim %}data_fim={{ request.GET.data_fim }}&{% endif %}page={{ feedbacks.next_page_number }}" class="dashboard-ajax-pagination flex items-center gap-2 bg-white text-slate-900 border border-slate-200 px-5 py-3 rounded-2xl font-black text-xs uppercase hover:bg-slate-50 transition-all shadow-sm">
+                <a href="?{% if request.GET.setor %}setor={{ request.GET.setor }}&{% endif %}{% if request.GET.status %}status={{ request.GET.status }}&{% endif %}{% if request.GET.sentimento %}sentimento={{ request.GET.sentimento }}&{% endif %}{% if request.GET.data_inicio %}data_inicio={{ request.GET.data_inicio }}&{% endif %}{% if request.GET.data_fim %}data_fim={{ request.GET.data_fim }}&{% endif %}page={{ feedbacks.next_page_number }}" class="dashboard-ajax-pagination flex items-center gap-2 bg-white text-slate-900 border border-slate-200 px-5 py-3 rounded-2xl font-black text-xs uppercase hover:bg-slate-50 transition-all shadow-sm">
                     Próxima <i data-lucide="chevron-right" class="w-4 h-4"></i>
                 </a>
             {% endif %}

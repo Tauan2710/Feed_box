@@ -97,8 +97,20 @@ def dashboard(request):
     if data_fim:
         feedbacks_base = feedbacks_base.filter(data_criacao__date__lte=data_fim)
 
+    feedbacks_lista = feedbacks_base.all()
+
+    status_filtro = request.GET.get('status')
+    if status_filtro == 'respondidos':
+        feedbacks_lista = feedbacks_lista.filter(resposta__isnull=False)
+    elif status_filtro == 'pendentes':
+        feedbacks_lista = feedbacks_lista.filter(resposta__isnull=True)
+
+    sentimento_filtro = request.GET.get('sentimento')
+    if sentimento_filtro:
+        feedbacks_lista = feedbacks_lista.filter(sentimento=sentimento_filtro)
+
     # --- LÓGICA DE PAGINAÇÃO ---
-    feedbacks_ordenados = feedbacks_base.select_related('setor').order_by('-data_criacao')
+    feedbacks_ordenados = feedbacks_lista.select_related('setor').order_by('-data_criacao')
     paginator = Paginator(feedbacks_ordenados, 5) # 5 feedbacks por página
     page_number = request.GET.get('page')
     feedbacks_paginados = paginator.get_page(page_number)
@@ -118,13 +130,13 @@ def dashboard(request):
     sentimento_labels = ['Positivo', 'Neutro', 'Negativo']
     sentimento_valores = [mapa_sentimentos['Positivo'], mapa_sentimentos['Neutro'], mapa_sentimentos['Negativo']]
 
-    # Gráfico de Categorias
+
     categorias_stats = feedbacks_base.values('categoria').annotate(total=Count('id'))
     mapa_nomes = {'SUGE': 'Sugestão', 'ELOG': 'Elogio', 'CRIT': 'Crítica', 'DENU': 'Denúncia'}
     categoria_labels = [mapa_nomes.get(c['categoria'], c['categoria']) for c in categorias_stats]
     categoria_valores = [c['total'] for c in categorias_stats]
     
-    # Cálculo eNPS
+    # Cálculo eNPS ( É MEIO COMPLICADO DE ENTENDER KKKK)
     enps_score = 0
     total_enps = 0
     detratores_count = 0
